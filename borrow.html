@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Borrow book</title>
+</head>
+
+<body>
+    <h1>Borrow book</h1>
+    <hr><br>
+
+    <form action="#" method="post"> 
+<!--Quantity-->
+        <div>
+            <label for="quantity">Quantity:</label><br>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+        </div><br>
+<!--Borrow date-->
+        <div>
+            <label for="bdate">Borrow date:</label><br>
+            <input type="date" id="bdate" name="bdate" required>
+        </div><br>
+<!--Return date-->
+        <div>
+            <label for="rdate">Return date</label><br>
+            <input type="date" id="rdate" name="rdate" required>
+        </div><br>
+<!--Address-->
+        <div>
+            <label for="address">Address:</label><br>
+            <textarea id="address" name="address" rows="8" cols="30" placeholder="Enter your address here..." required></textarea>
+        </div><br>
+<!--Payment method-->
+        <div>
+            <label for="payment">Payment method:</label><br>
+
+            <input type="radio" id="cash" name="payment" value="cash" required>
+            <label for="cash">Cash on delivery</label>
+            
+            <input type="radio" id="card" name="payment" value="card" required>
+            <label for="card">Card</label>
+        </div><br>
+<!--Notes-->    
+        <div>
+            <label for="notes">Notes:</label><br>
+            <textarea id="notes" name="notes" rows="5" cols="30" placeholder="Enter any notes here..."></textarea>
+        </div><br>
+<!--Buttons-->
+        <div>
+            <input type="submit" value="Borrow book">
+            <input type="reset" value="Clear form">
+        </div>
+    </form>
+</body>
+
+</html>
