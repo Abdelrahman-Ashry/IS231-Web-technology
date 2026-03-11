@@ -2,18 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Login - Online Library System</title>
 </head>
 <body>
 
-    <div>
-        <h2>Login</h2>
-        <form action="">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <button type="submit">Login</button>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="signup.html">Sign Up</a> |
+        <a href="login.html">Login</a>
+    </nav>
+
+    <hr>
+
+    <header>
+        <h1>Online Library System</h1>
+    </header>
+
+    <main>
+        <h2>Login to Your Account</h2>
+
+        <form action="user_dashboard.html" method="GET">
+            
+            <section>
+                <label for="username">Username or Email:</label><br>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </section>
+            <br>
+
+            <section>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </section>
+            <br>
+
+            <section>
+                <button type="submit">Login as User</button>
+                <button type="submit" onclick="window.location.href='admin_dashboard.html'; return false;">Login as Admin</button>
+                <button type="reset">Clear</button>
+            </section>
+
         </form>
-    </div>
+
+   
+    </main>
+
+    <hr>
+
+
 
 </body>
 </html>
