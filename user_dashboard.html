@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard - Library</title>
+</head>
+<body>
+    <header>
+        <h1>User Library Dashboard</h1>
+        <nav>
+
+            <a href="user_dashboard.html">Library Catalog</a> &nbsp; | &nbsp; 
+            <a href="borrowed_books.html">My Borrowed Books</a> &nbsp; | &nbsp; 
+            <a href="login.html">Logout</a>
+
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Search for Books</h2>
+            <form action="user_dashboard.html" method="GET">
+                <p>
+                    <label for="search_query">Search:</label>
+                    <input type="text" id="search_query" name="search_query" placeholder="Title or Author...">
+                    
+                    <label for="search_category">Category:</label>
+                    <select id="search_category" name="search_category">
+                            <option value="" disabled selected>--Select a Category--</option>
+                            <option value="fiction">Fiction</option>
+                            <option value="non-fiction">Non-Fiction</option>
+                            <option value="science">Science</option>
+                            <option value="education">Education</option>
+                            <option value="technology">Technology</option>
+                            <option value="history">History</option>
+                            <option value="biography">Biography</option>
+                            <option value="self_help">Self-Help</option>
+                            <option value="philosophy">Philosophy</option>
+                            <option value="religion">Religion</option>
+                            <option value="children">Children</option>
+                            <option value="other">Other</option>
+                    </select>
+                    
+                    <button type="submit">Search</button>
+                </p>
+            </form>
+        </section>
+        
+        <hr>
+
+        <section>
+            <h2>Library Catalog</h2>
+            <table border="1" cellpadding="8" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="book_details1.html">The Great Gatsby</a></td>
+                        <td>F. Scott Fitzgerald</td>
+                        <td>Fiction</td>
+                        <td>Available</td>
+                    </tr>
+                    <tr>
+                        <td><a href="book_details2.html">Introduction to Algorithms</a></td>
+                        <td>Thomas H. Cormen</td>
+                        <td>Education</td>
+                        <td>Not Available</td>
+                    </tr>
+                    <tr>
+                        <td><a href="book_details3.html">Python Programming</a></td>
+                        <td>John Doe</td>
+                        <td>Education</td>
+                        <td>Available</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details3</title>
+</head>
+<body>
+    <header>
+        <h1>User Library Dashboard</h1>
+        <nav>
+            <a href="user_dashboard.html">Library Catalog</a> &nbsp; | &nbsp; 
+            <a href="borrowed_books.html">My Borrowed Books</a> &nbsp; | &nbsp; 
+            <a href="login.html">Logout</a>
+            
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Book Details3</h2>
+            <ul>
+                <li><strong>Book ID:</strong> 1003</li><br>
+                <li><strong>Book Name:</strong> Python Programming</li><br>
+                <li><strong>Author:</strong> John Doe</li><br>
+                <li><strong>Category:</strong> Education</li><br>
+                <li><strong>Published Year:</strong> 1980</li><br>
+                <li><strong>Status:</strong> Not Available</li><br>
+                <li><strong>Number of copies:</strong> 3</li><br>
+            </ul>
+            
+            <h3>Description:</h3>
+            <p>A classic novel set in the Jazz Age that explores themes of decadence, idealism, and resistance to change, creating a portrait of the Roaring Twenties.</p>
+
+            <form action="borrow.html" method="POST">
+                <input type="hidden" name="book_id" value="1003">
+                <button type="submit">Borrow this book</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+    </footer>
+</body>
+</html>

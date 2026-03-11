@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details1</title>
+</head>
+<body>
+    <header>
+        <h1>User Library Dashboard</h1>
+        <nav>
+            <a href="user_dashboard.html">Library Catalog</a> &nbsp; | &nbsp; 
+            <a href="borrowed_books.html">My Borrowed Books</a> &nbsp; | &nbsp; 
+            <a href="login.html">Logout</a>
+            
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Book Details1</h2>
+            <ul>
+                <li><strong>Book ID:</strong> 1001</li><br>
+                <li><strong>Book Name:</strong> The Great Gatsby</li><br>
+                <li><strong>Author:</strong> F. Scott Fitzgerald</li><br>
+                <li><strong>Category:</strong> Fiction</li><br>
+                <li><strong>Published Year:</strong> 1950</li><br>
+                <li><strong>Status:</strong> Available</li><br>
+                <li><strong>Number of copies:</strong> 5</li>
+            </ul>
+            
+            <h3>Description:</h3>
+            <p>A classic novel set in the Jazz Age that explores themes of decadence, idealism, and resistance to change, creating a portrait of the Roaring Twenties.</p>
+
+            <form action="borrow.html" method="POST">
+                <input type="hidden" name="book_id" value="1001">
+                <button type="submit">Borrow this book</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book2 - Admin</title>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <a href="admin_dashboard.html">Manage Books</a> &nbsp; | &nbsp; 
+            <a href="add_book.html">Add New Book</a> &nbsp; | &nbsp; 
+            <a href="login.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Edit Existing Book</h2>
+            <form action="admin_dashboard.html" method="POST">
+                <p>
+                    <label for="book_id">Book ID:</label><br>
+                    <input type="number" id="book_id" name="book_id" value="1002" required>
+                </p>
+                <p>
+                    <label for="book_name">Book Name:</label><br>
+                    <input type="text" id="book_name" name="book_name" value="Introduction to Algorithms" required>
+                </p>
+                <p>
+                    <label for="author">Author:</label><br>
+                    <input type="text" id="author" name="author" value="Thomas H. Cormen" required>
+                </p>
+                <p>
+                    <label for="category">Category:</label><br>
+                    <select id="category" name="category" required>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="science">Science</option>
+                        <option value="education" selected>Education</option>
+                        <option value="technology">Technology</option>
+                        <option value="history">History</option>
+                        <option value="biography">Biography</option>
+                        <option value="self_help">Self-Help</option>
+                        <option value="philosophy">Philosophy</option>
+                        <option value="religion">Religion</option>
+                        <option value="children">Children</option>
+                        <option value="other">Other</option>
+                    </select>
+               </p>
+                <p>
+                    <label for="published_year">Published Year:</label><br>
+                    <input type="number" id="published_year" name="published_year" value="1930" required min="1000" max="9999">
+
+                </p>
+                <p>
+                    <label for="status">Availability Status:</label><br>
+                    <select id="status" name="status" required>
+                        <option value="available">Available</option>
+                        <option value="not_available" selected>Not Available</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="copies">Number of Copies:</label><br>
+                    <input type="number" id="copies" name="copies" value="4" required min="1">
+                </p>
+                <p>
+                    <label for="description">Description:</label><br>
+                    <textarea id="description" name="description" rows="5" cols="40" required>A classic novel set in the Jazz Age.</textarea>
+                </p>
+                <p>
+                    <button type="submit">Save Changes</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+    </footer>
+</body>
+</html>
