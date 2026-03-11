@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>  
+<head>  
+    <title>Add Book Page</title>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="U can add your desired book "/>
+    <!-- اي الدنيا   -->
+   
+</head>
+<lable>    
+    <h1> Add a New Book </h1>
+    <h2> Please fill in the details below to add a new book to our library </h2>
+ISBN:<br><input type="int"size=20 maxlength=30 placeholder="Enter Book ID"><br><br>
+Book Title:<br><input type="text" size=20 maxlength=30 placeholder="Enter Book Title"><br><br>
+Author Name:<br><input type="text" size=20 maxlength=30 placeholder="Enter Author Name"><br><br>
+Publisher Name:<br><input type="text" size=20 maxlength=30 placeholder="Enter Publisher Name"><br><br>
+Publication Year:<br><input type="int" size=20 maxlength=30 placeholder="Enter Publication Year"><br><br>
+Number of Copies:<br><input type="int" size=20 maxlength=30 placeholder="Enter Number of Copies"><br><br>
+<form method="post“ action="mailto:youremail@email.com">
+Category:
+<select name="choice">
+<option>Fiction</option>
+<option>Non-Fiction</option>
+<option>Science</option>
+<option>Technology</option>
+<option>History</option>
+<option>Self-Development</option>
+<option>Children's Books</option>
+</select>
+</form><br/>
+<form method="post“ action="mailto:youremail@email.com">
+
+Availability Status:
+<select name="choice">
+    <option>Available</option>
+<option>Borrowed</option>
+<option>Reserved</option>
+<option>Out of Stock</option>
+</select>
+</form><br/>
+Discription:<br><br>
+<textarea rows="5" cols="50" >
+Enter Book Description Here:
+</textarea><br><br>
+<button type="submit">Add Book</button>
+<button type="reset">Clear</button>    
+
+
+</body>
+</html>
+
+       
