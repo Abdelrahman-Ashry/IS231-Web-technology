@@ -6,22 +6,20 @@
 </head>
 <body>
 
-    <nav>
-        <a href="index.html">Home</a> |
-        <a href="signup.html">Sign Up</a> |
-        <a href="login.html">Login</a>
-    </nav>
 
-    <hr>
 
     <header>
         <h1>Online Library System</h1>
+        <nav>
+        <a href="signup.html">Sign Up</a> &nbsp; | &nbsp; 
+        <a href="login.html">Login</a>
+    </nav>
     </header>
 
     <main>
         <h2>Login to Your Account</h2>
 
-        <form action="user_dashboard.html" method="GET">
+        <form action="#" method="post">
             
             <section>
                 <label for="username">Username or Email:</label><br>
@@ -36,9 +34,9 @@
             <br>
 
             <section>
-                <button type="submit">Login as User</button>
-                <button type="submit" onclick="window.location.href='admin_dashboard.html'; return false;">Login as Admin</button>
-                <button type="reset">Clear</button>
+                    <button type="submit" formaction="admin_dashboard.html">Login as Admin</button>
+                    <button type="submit" formaction="user_dashboard.html">Login as User</button>
+                    <button type="reset">Clear</button> 
             </section>
 
         </form>
@@ -46,9 +44,11 @@
    
     </main>
 
-    <hr>
-
-
+    
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+        <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+    </footer>
 
 </body>
 </html>
