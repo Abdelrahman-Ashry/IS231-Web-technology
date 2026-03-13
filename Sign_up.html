@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login or Sign Up</title>
+</head>
+<body>
+
+    <header>
+        <h1>Online Library System</h1>
+        <p>Create a new account to access the library.</p>
+
+        <nav>
+            
+            <a href="Sign up.html">Sign Up</a> &nbsp; | &nbsp; 
+            <a href="login.html">Login</a>
+            
+        </nav>
+    </header>
+
+
+    <section id="signup-section">
+        <h2>Create a New Account</h2>
+        <form action="login.html" method="POST">
+            <label for="fullname">Full Name:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter Your Full Name" required><br><br>
+
+            <label for="signup-email">Email:</label><br>
+            <input type="email" id="signup-email" name="email" placeholder="Enter Your Email" required><br><br>
+
+            <label for="signup-psw">Password:</label><br>
+            <input type="password" id="signup-psw" name="psw" placeholder="Enter Your Password" required><br><br>
+
+            <label for="confirm-psw">Confirm Password:</label><br>
+            <input type="password" id="confirm-psw" name="confirm-psw" placeholder="Confirm Your Password" required><br><br>
+
+            <label>Account Role:</label><br>
+            <input type="radio" id="role_user" name="is_admin" value="user" required>
+            <label for="role_user">User</label><br>
+                        
+            <input type="radio" id="role_admin" name="is_admin" value="admin" required>
+            <label for="role_admin">Admin</label><br><br>
+
+            <button type="submit">Register</button>
+            <button type="reset">Clear</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+        <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+    </footer>
+</body>
+</html>
