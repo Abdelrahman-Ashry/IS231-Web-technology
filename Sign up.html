@@ -2,52 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Online Library System</title>
+    <link rel="stylesheet" href="../css/loginstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>Online Library System</h1>
-        <p>Create a new account to access the library.</p>
-
-        <nav>
-            
-            <a href="Sign_up.html">Sign Up</a> &nbsp; | &nbsp; 
-            <a href="login.html">Login</a>
-            
+<header class="navbar">
+    <div class="blackbar">
+        <div class="logo-group">
+            <div class="logo">
+                <img src="../css/logo.jpg" alt="logo">
+            </div>
+            <div class="o">
+                <h1>Online Library</h1>
+            </div>
+        </div>
+        <nav class="auth-links">
+            <a href="login.html">Log In</a>
+            <a href="Sign_up.html">Sign Up</a>
         </nav>
-    </header>
+    </div>
+</header>
 
+<main class="login-container">
+    <div class="login-card">
+        <div class="info-section">
+            <h1>Join Us</h1><br>
+            <p style="color:grey">Create a free account to borrow books, track your reading, and explore our digital collection.</p>
+        </div>
 
-    <section id="signup-section">
-        <h2>Create a New Account</h2>
-        <form action="login.html" method="POST">
-            <label for="fullname">Full Name:</label><br>
-            <input type="text" id="fullname" name="fullname" placeholder="Enter Your Full Name" required><br><br>
+        <div class="form-section">
+            <form action="login.html" method="POST">
+                <div class="input-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Enter Your Full Name" required>
+                </div>
 
-            <label for="signup-email">Email:</label><br>
-            <input type="email" id="signup-email" name="email" placeholder="Enter Your Email" required><br><br>
+                <div class="input-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" name="email" placeholder="Enter Your Email" required>
+                </div>
 
-            <label for="signup-psw">Password:</label><br>
-            <input type="password" id="signup-psw" name="psw" placeholder="Enter Your Password" required><br><br>
+                <div class="input-group">
+                    <label for="signup-psw">Password</label>
+                    <input type="password" id="signup-psw" name="psw" placeholder="Enter Your Password" required>
+                </div>
 
-            <label for="confirm-psw">Confirm Password:</label><br>
-            <input type="password" id="confirm-psw" name="confirm-psw" placeholder="Confirm Your Password" required><br><br>
+                <div class="input-group">
+                    <label for="confirm-psw">Confirm Password</label>
+                    <input type="password" id="confirm-psw" name="confirm-psw" placeholder="Confirm Your Password" required>
+                </div>
 
-            <label>Account Role:</label><br>
-            <input type="radio" id="role_user" name="is_admin" value="user" required>
-            <label for="role_user">User</label><br>
-                        
-            <input type="radio" id="role_admin" name="is_admin" value="admin" required>
-            <label for="role_admin">Admin</label><br><br>
+                <div class="role-selection">
+                    <label>Account Role:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="role_user" name="is_admin" value="user" required checked>
+                        <label for="role_user">User</label>
+                        <input type="radio" id="role_admin" name="is_admin" value="admin" required>
+                        <label for="role_admin">Admin</label>
+                    </div>
+                </div>
 
-            <button type="submit">Register</button>
-            <button type="reset">Clear</button>
-        </form>
-    </section>
-    <footer>
-        <p>&copy; 2026 Online Library Website</p>
-        <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
-    </footer>
+                <div class="action-buttons">
+                    <button type="submit" class="main-login-btn">Register</button>
+                    <button type="reset" class="clear-btn">Clear</button>
+                </div>
+            </form>
+            <p class="signup-footer">Already have an account? <a href="login.html">Log in here.</a></p>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <p>&copy; 2026 Online Library Website | <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+
 </body>
 </html>
