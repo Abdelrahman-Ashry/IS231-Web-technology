@@ -2,53 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Online Library System</title>
+ <link rel="stylesheet" href="../css/loginstyle.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 
+<header class="navbar">
+    <div class="blackbar">
+        <div class="logo-group">
+            <div class="logo">
+                <img src="../css/logo.jpg" alt="logo">
+            </div>
+            <div class="o">
+                <h1>Online Library</h1>
+            </div>
+        </div>
 
+     
 
-    <header>
-        <h1>Online Library System</h1>
-        <nav>
-        <a href="Sign up.html">Sign Up</a> &nbsp; | &nbsp; 
-        <a href="login.html">Login</a>
-    </nav>
-    </header>
+        <nav class="auth-links">
+            <a href="login.html" class="login-btn">Log In</a>
+            <a href="Sign up.html" class="signup-btn">Sign Up</a>
+        </nav>
+    </div>
+</header>
 
-    <main>
-        <h2>Login to Your Account</h2>
+<main class="login-container">
+    <div class="login-card">
+        <div class="info-section">
+            <h1>Log In</h1><br>
+            <p style="color:grey">Log in to use your free Online Library to borrow digital books from our collection.</p>
+        </div>
 
-        <form action="#" method="post">
-            
-            <section>
-                <label for="username">Username or Email:</label><br>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
-            </section>
-            <br>
+        <div class="form-section">
+    <form action="#" method="post">
+        <div class="input-group">
+            <div class="label-row">
+                <label for="username">Email</label>
+                
+            </div>
+            <input type="text" id="username" name="username" placeholder="Email" required>
+        </div>
 
-            <section>
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
-            </section>
-            <br>
+        <div class="input-group">
+            <div class="label-row">
+                <label for="password">Password</label>
+                <a href="#" class="small-link">Forgot your password?</a>
+            </div>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
 
-            <section>
-                    <button type="submit" formaction="admin_dashboard.html">Login as Admin</button>
-                    <button type="submit" formaction="user_dashboard.html">Login as User</button>
-                    <button type="reset">Clear</button> 
-            </section>
+        <div class="options">
+            <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
 
-        </form>
+        <div class="action-buttons">
+            <button type="submit" class="main-login-btn">Log In</button>
+        </div>
+    </form>
 
-   
-    </main>
+    <p class="signup-footer">Don't have an account? <a href="Sign up.html">Sign up now.</a></p>
+</div>
+    </div>
+</main>
 
-    
-    <footer>
-        <p>&copy; 2026 Online Library Website</p>
-        <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
-    </footer>
-
+<footer class="site-footer">
+    <p>&copy; 2026 Online Library Website | <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
 </body>
 </html>
