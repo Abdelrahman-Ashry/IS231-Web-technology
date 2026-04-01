@@ -4,28 +4,47 @@
     <title>Add Book Page</title>
     <meta charset="UTF-8"/>
     <meta name="description" content="U can add your desired book "/>
-    
+    <link rel="stylesheet" href="style.css"/>
+
    
 </head>
 <body>
 <header>
-    <h1>Admin Dashboard</h1>
-    <nav>
-        <a href="admin_dashboard.html">Manage Books</a> &nbsp; | &nbsp; 
-        <a href="add_book.html">Add New Book</a> &nbsp; | &nbsp; 
+   
+    <nav class="navbar">
+
+    <div class="logo">
+        <img src="book-logo.png.jpg" width="40" height="40" alt="logo" shape="circle">
+        <span><bold>Online Library</bold></span>
+    </div>
+
+    <div class="links">
+        <a href="admin_dashboard.html">Manage Books</a>
+        <a href="add_book.html">Add New Book</a>
         <a href="login.html">Logout</a>
-    </nav>
+    </div>
+
+</nav>
+    <h1>Welcome To Admin Dashboard</h1>
 </header>
-<lable>    
-    <h1> Add a New Book </h1>
-ISBN:<br><input type="int"size=20 maxlength=30 placeholder="Enter Book ID"><br><br>
-Book Title:<br><input type="text" size=20 maxlength=30 placeholder="Enter Book Title"><br><br>
-Author Name:<br><input type="text" size=20 maxlength=30 placeholder="Enter Author Name"><br><br>
-Publisher Name:<br><input type="text" size=20 maxlength=30 placeholder="Enter Publisher Name"><br><br>
-Publication Year:<br><input type="int" size=20 maxlength=30 placeholder="Enter Publication Year"><br><br>
-Number of Copies:<br><input type="int" size=20 maxlength=30 placeholder="Enter Number of Copies"><br><br>
-<form method="post“ action="mailto:youremail@email.com">
-Category:
+<div class="container">   
+    <h2>Please Add a New Book </h2>
+<label> ISBN:</label>
+<br><input type="int"size=20 maxlength=30 placeholder="Enter Book ID"><br><br>
+<label>Book Title:</label>
+<br><input type="text" size=20 maxlength=30 placeholder="Enter Book Title"><br><br>
+<label>Book Image</label>
+<input type="file" name="book_image" accept="image/*"><br><br>
+<label>Author Name:</label>
+<br><input type="text" size=20 maxlength=30 placeholder="Enter Author Name"><br><br>
+<label>Publisher Name:</label>
+<br><input type="text" size=20 maxlength=30 placeholder="Enter Publisher Name"><br><br>
+<label>Publication Year:</label>
+<br><input type="int" size=20 maxlength=30 placeholder="Enter Publication Year"><br><br>
+<label>Number of Copies:</label>
+<br><input type="int" size=20 maxlength=30 placeholder="Enter Number of Copies"><br><br>
+<form method="post" action="mailto:youremail@email.com">
+<label>Category:</label>
 <select name="choice">
 <option value="" disabled selected>--Select a Category--</option>
 <option>Fiction</option>
@@ -40,9 +59,9 @@ Category:
 <option>Children's Books</option>
 </select>
 </form><br/>
-<form method="post“ action="mailto:youremail@email.com">
+<form method="post" action="mailto:youremail@email.com">
 
-Availability Status:
+<label>Status:</label>
 <select name="choice">
 <option value="" disabled selected>-- Select Status --</option>
 <option>Available</option>
@@ -51,11 +70,13 @@ Availability Status:
 <option>Out of Stock</option>
 </select>
 </form><br/>
-Discription:<br><br>
+<label>Description:</label>
+<br><br>
 <textarea rows="5" cols="50" placeholder="Enter Book Description Here:" >
 </textarea><br><br>
 <button type="submit">Add Book</button>
 <button type="reset">Clear</button>    
+</label>
 
         <footer>
             <p>&copy; 2026 Online Library Website</p>
