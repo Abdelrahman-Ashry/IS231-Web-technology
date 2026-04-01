@@ -4,67 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="borrow_style.css">
+    <script src="https://kit.fontawesome.com/1076022f5d.js" crossorigin="anonymous"></script>
     <title>Borrow book</title>
 </head>
 
-<body>
+<body class="borrowBookPage">
 
-    <h1>Borrow book</h1>
-        <nav>
-        <a href="user_dashboard.html">Library Catalog</a> &nbsp; | &nbsp; 
-        <a href="borrowed_books.html">My Borrowed Books</a> &nbsp; | &nbsp; 
-        <a href="login.html">Logout</a>
-            
-    </nav>
-    <hr><br>
+    <header class="navbar">  
+        <nav class="nav-links">
+            <div class="logo">
+                <a href="user_dashboard.html">
+                    <img src="lines-leaning-white.png" alt="logo">
+                </a>
+            </div>
+
+            <a href="user_dashboard.html">Library Catalog</a>
+            <a href="borrowed_books.html">My Borrowed Books</a>
+        </nav>
+        <a class="logout" href="login.html">Log out</a>
+    </header>
+
     
-
+    <h1>Borrow book</h1>
+    
     <form action="#" method="post"> 
-<!--Quantity-->
-        <div>
-            <label for="quantity">Quantity:</label><br>
-            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
-        </div><br>
-<!--Borrow date-->
-        <div>
-            <label for="bdate">Borrow date:</label><br>
-            <input type="date" id="bdate" name="bdate" required>
-        </div><br>
-<!--Return date-->
-        <div>
-            <label for="rdate">Return date</label><br>
-            <input type="date" id="rdate" name="rdate" required>
-        </div><br>
-<!--Address-->
-        <div>
-            <label for="address">Address:</label><br>
-            <textarea id="address" name="address" rows="8" cols="30" placeholder="Enter your address here..." required></textarea>
-        </div><br>
-<!--Payment method-->
-        <div>
-            <label for="payment">Payment method:</label><br>
+        <fieldset>
+            <legend>Borrowing Details</legend>
 
-            <input type="radio" id="cash" name="payment" value="cash" required>
-            <label for="cash">Cash on delivery</label>
-            
-            <input type="radio" id="card" name="payment" value="card" required>
-            <label for="card">Card</label>
-        </div><br>
-<!--Notes-->    
-        <div>
-            <label for="notes">Notes:</label><br>
-            <textarea id="notes" name="notes" rows="5" cols="30" placeholder="Enter any notes here..."></textarea>
-        </div><br>
-<!--Buttons-->
-        <div>
+    <!--Quantity-->    
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+
+    <!--Borrow and return date-->
+            <div class="dates">
+                <div>
+                    <label for="bdate">Borrow date:</label>
+                    <input type="date" id="bdate" name="bdate" required>
+                </div>
+
+                <div>
+                    <label for="rdate">Return date</label>
+                    <input type="date" id="rdate" name="rdate" required>
+                </div>
+            </div>
+    
+    <!--Address-->
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="8" placeholder="Enter your address here..." required></textarea>
+
+    <!--Payment method-->
+            <div class="payment-method">
+                <label for="payment">Payment method:</label>
+
+                <input type="radio" id="cash" name="payment" value="cash" required>
+                <label for="cash">Cash on delivery</label>
+                
+                <input type="radio" id="card" name="payment" value="card" required>
+                <label for="card">Membership card</label>
+            </div>
+
+    <!--Notes-->    
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="5" placeholder="Enter any notes here..."></textarea>
+
+            <div class="newspaper">
+                <input type="checkbox" id="newspaper" name="newspaper" value="newspaper">
+                <label for="newspaper">Subscribe to our newspaper</label>
+            </div>
+    <!--Buttons-->
             <input type="submit" value="Borrow book">
-            <input type="reset" value="Clear form">
-        </div>
+
+        </fieldset>
     </form>
 
-    <footer>
+    <footer class="footer">
         <p>&copy; 2026 Online Library Website</p>
-        <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+
+        <div class="footer-links">
+            <a href="https://www.facebook.com" target="_blank">    
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="mailto:support@onlinelibrary.edu"">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Help</a>
+        </div>
     </footer>
 </body>
 
