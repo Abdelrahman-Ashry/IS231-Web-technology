@@ -1,22 +1,23 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #dfe8f3; 
+    font-family: Open Sans, sans-serif;
+    background-color: #FFF9F9; 
 }
 .container {
     width: 85%;
     max-width: 1000px;
     margin: 50px auto;
-    background-color: #f8f9fb; 
+    background-color: #FFF9F9; 
     padding: 30px;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px #3B0764 ;
+    
 }
 header {
-    background-color: black;
+    background-color: #3B0764;
     color: white;
-    padding: 20px;
+    padding: 10px;
     text-align: right;
 }
 h1 {
@@ -24,8 +25,9 @@ h1 {
      text-align: center;
 }
 h2{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
+    color:#3B0764
 }
 nav a {
     color: white;
@@ -35,17 +37,17 @@ nav a {
     text-align: right;
 }
 nav a:hover {
-    color: hwb(165 7% 5%);
+    color: #9852cd;
 }
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: #3B0764;
     padding: 5px 5px;
 }
 .logo img {
-    width: 40px;
+    width:40px;
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
@@ -64,12 +66,12 @@ input, select, textarea {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #3B0764;
     border-radius: 5px;
     box-sizing: border-box;
 }
 input[type="file"] {
-    border: 1px solid #ccc;
+    border: 1px solid #3B0764;
     padding: 8px;
     border-radius: 6px;
     background: white;
@@ -78,6 +80,7 @@ label {
     font-weight: bold;
     display: block;
     margin-top: 10px;
+    color:#3B0764
 }
 button {
     padding: 10px 20px;
@@ -88,7 +91,7 @@ button {
     margin-right: 10px;
 }
 button[type="submit"] {
-    background-color: #2776ae;
+    background-color: #3B0764;
     color: white;
 }
 button[type="reset"] {
