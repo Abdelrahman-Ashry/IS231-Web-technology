@@ -1,83 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Admin Dashboard - Manage Books</title>
-    </head>
-    <body>
-        <header>
-            <h1>Admin Dashboard</h1>
-            <nav>
-                <a href="admin_dashboard.html">Manage Books</a> &nbsp; | &nbsp; 
-                <a href="Add Book.html">Add New Book</a> &nbsp; | &nbsp; 
-                <a href="login.html">Logout</a>
-            
-            </nav>
-        </header>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Manage Books</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
+    
+</head>
+<body>
 
+    <!-- TOP HEADER -->
+    <header class="navbar">
+        <div class="header-brand">
+            <div class="logo-group">
+                <div class="logo">
+                    <img src="logo.jpg" alt="logo">
+                </div>
+                <div class="o">
+                    <h1>Online Library</h1>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <a href="admin_dashboard.html" class="nav-active">Manage Books</a>
+            <a href="Add Book.html">Add New Book</a>
+            <a href="login.html" class="nav-logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- PAGE WRAPPER -->
+    <div class="page-wrapper">
+        <div class="U">
+            <h1>Admin Dashboard</h1><br>
+        </div>
         <main>
             <section>
-                <h2>Available Books</h2>
-                <table border="1" cellpadding="8" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Book ID</th>
-                            <th>Book Name</th>
-                            <th>Author</th>
-                            <th>Category</th>
-                            <th>Published Year</th>
-                            <th>Status</th>
-                            <th>Number of copies</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1001</td>
-                            <td>The Great Gatsby</td>
-                            <td>F. Scott Fitzgerald</td>
-                            <td>Fiction</td>
-                            <td>1950</td>
-                            <td>Available</td>
-                            <td>5</td>
-                            <td>
-                                <a href="Edit-book1.html">Edit</a> | 
-                                <a href="#">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1002</td>
-                            <td>Introduction to Algorithms</td>
-                            <td>Thomas H. Cormen</td>
-                            <td>Education</td>
-                            <td>1930</td>
-                            <td>Not Available</td>
-                            <td>4</td>
-                            <td>
-                                <a href="Edit-book2.html">Edit</a> | 
-                                <a href="#">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>1003</td>
-                            <td>Python Programming</td>
-                            <td>John Doe</td>
-                            <td>Education</td>
-                            <td>1980</td>
-                            <td>Available</td>
-                            <td>3</td>
-                            <td>
-                                <a href="Edit-book3.html">Edit</a> | 
-                                <a href="#">Delete</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+
+                <!-- Section title + Add button -->
+                <div class="section-header">
+                    <h2>Available Books</h2>
+                    <a href="Add Book.html" class="btn-add">+ Add New Book</a>
+                </div>
+
+                <!-- BOOK CARDS GRID -->
+                <div class="books-grid">
+
+                    <!-- Card 1 -->
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="https://covers.openlibrary.org/b/id/8432591-L.jpg" alt="The Great Gatsby">
+                            <span class="badge badge-available">Available</span>
+                        </div>
+                        <div class="book-info">
+                            <span class="book-id">#1001</span>
+                            <h3 class="book-title">The Great Gatsby</h3>
+                            <p class="book-author">F. Scott Fitzgerald</p>
+                            <div class="book-meta">
+                                <span class="meta-tag">Fiction</span>
+                                <span class="meta-tag">1950</span>
+                                <span class="meta-copies">5 copies</span>
+                            </div>
+                            <div class="book-actions">
+                                <a href="Edit-book1.html" class="btn-edit">✏️ Edit</a>
+                                <a href="#" class="btn-delete">🗑️ Delete</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="https://covers.openlibrary.org/b/id/8234505-L.jpg" alt="Introduction to Algorithms">
+                            <span class="badge badge-unavailable">Not Available</span>
+                        </div>
+                        <div class="book-info">
+                            <span class="book-id">#1002</span>
+                            <h3 class="book-title">Introduction to Algorithms</h3>
+                            <p class="book-author">Thomas H. Cormen</p>
+                            <div class="book-meta">
+                                <span class="meta-tag">Education</span>
+                                <span class="meta-tag">1930</span>
+                                <span class="meta-copies">4 copies</span>
+                            </div>
+                            <div class="book-actions">
+                                <a href="Edit-book2.html" class="btn-edit">✏️ Edit</a>
+                                <a href="#" class="btn-delete">🗑️ Delete</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="book-card">
+                        <div class="book-cover">
+                            <img src="https://covers.openlibrary.org/b/id/10521270-L.jpg" alt="Python Programming">
+                            <span class="badge badge-available">Available</span>
+                        </div>
+                        <div class="book-info">
+                            <span class="book-id">#1003</span>
+                            <h3 class="book-title">Python Programming</h3>
+                            <p class="book-author">John Doe</p>
+                            <div class="book-meta">
+                                <span class="meta-tag">Education</span>
+                                <span class="meta-tag">1980</span>
+                                <span class="meta-copies">3 copies</span>
+                            </div>
+                            <div class="book-actions">
+                                <a href="Edit-book3.html" class="btn-edit">✏️ Edit</a>
+                                <a href="#" class="btn-delete">🗑️ Delete</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- end books-grid -->
+
             </section>
         </main>
 
-        <footer>
-            <p>&copy; 2026 Online Library Website</p>
-        </footer>
-    </body>
+    </div>
+    <!-- end page-wrapper -->
+
+    <footer>
+        <p>&copy; 2026 Online Library Website</p>
+    </footer>
+
+</body>
 </html>
