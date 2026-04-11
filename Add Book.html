@@ -10,14 +10,11 @@
 </head>
 <body>
 <header>
-   
-    <nav class="navbar">
-
+   <nav class="navbar">
     <div class="logo">
-        <img src="logo.jpg" width="40" height="40" alt="logo" shape="circle">
+        <img src="book-logo.jpg" width="40" height="40" alt="logo" shape="circle">
         <span><bold>Online Library</bold></span>
     </div>
-
     <div class="links">
         <a href="admin_dashboard.html">Manage Books</a>
         <a href="add_book.html">Add New Book</a>
@@ -75,15 +72,19 @@
 <br><br>
 <textarea rows="5" cols="50" placeholder="Enter Book Description Here:" >
 </textarea><br><br>
-<button type="submit">Add Book</button>
-<button type="reset">Clear</button>    
+<button onclick="validateForm()"  type="submit">Add Book</button>
+<button onclick="clearForm()" type="reset">Clear</button>    
+<!-- java successful message-->
+<p id="msg"></p>
 </div>
-
         <footer>
-            <p>&copy; 2026 Online Library Website</p>
+            <p><label> &copy; 2026 Online Library Website</label></p>
         </footer>
 </body>
 </html>
+
+
+       
 
 
        
