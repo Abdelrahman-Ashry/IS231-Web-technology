@@ -59,10 +59,24 @@ body.borrowBookPage{
 }
 .borrowBookPage fieldset{
     background-color: white;
-    margin: 2em 10em;
-    padding: 0.1em 2em 2em;
     border: 2px solid rgb(194, 194, 194);
     border-radius: 1em;
+    margin: 2em 10em;
+    padding: 0.1em 2em 2em;
+}
+.borrowBookPage .bookDetails{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+.borrowBookPage .bookDetails img{
+    width: 120px;
+    height: auto;
+    border-radius: 4px;
+    padding-top: 1em;
+}
+.borrowBookPage .bookInfo p{
+    text-align: left;
 }
 .borrowBookPage legend{
     font-size: 1.5em;
@@ -73,6 +87,7 @@ body.borrowBookPage{
     color: rgb(51, 51, 51);
     display: block;
     margin-top: 1em;
+    margin-bottom: 3px;
 }
 .borrowBookPage input{
     padding: 0.5em;
@@ -148,6 +163,11 @@ body.borrowBookPage{
     color: rgb(194, 194, 194);
     background-color: rgb(51, 51, 51);
     }
+}
+.borrowBookPage #message{
+    color: rgb(51, 51, 51);
+    margin-top: 1em;
+    text-align: center;
 }
 .borrowBookPage .footer{
     display: flex;

@@ -15,7 +15,7 @@
         <nav class="nav-links">
             <div class="logo">
                 <a href="user_dashboard.html">
-                    <img src="lines-leaning-white.png" alt="logo">
+                    <img src="images/lines-leaning-white.png" alt="logo">
                 </a>
             </div>
 
@@ -27,6 +27,19 @@
 
     
     <h1>Borrow book</h1>
+
+    <fieldset>
+        <legend>Book Details</legend>
+        <div class="bookDetails">
+            <img id="bookCover" src="" alt="book cover">
+            <div class="bookInfo">
+                <p id="bookTitle"></p>
+                <p id="bookAuther"></p>
+                <p id="bookCategory"></p>
+                <p id="bookYear"></p>
+            </div>
+        </div>
+    </fieldset>
     
     <form action="#" method="post"> 
         <fieldset>
@@ -34,7 +47,7 @@
 
     <!--Quantity-->    
             <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+            <input type="number" id="quantity" name="quantity" min="1" value="1" required>
 
     <!--Borrow and return date-->
             <div class="dates">
@@ -73,8 +86,9 @@
                 <label for="newspaper">Subscribe to our newspaper</label>
             </div>
     <!--Buttons-->
-            <input type="submit" value="Borrow book">
-
+            <input id="borrowBtn" type="submit" value="Borrow book" onclick="">
+    <!--Message-->
+            <p id="message"></p>
         </fieldset>
     </form>
 
@@ -93,6 +107,8 @@
             <a href="#">Help</a>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
