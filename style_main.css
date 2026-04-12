@@ -1,6 +1,6 @@
 /* Reset & Base */
 html {
-    scroll-behavior: smooth; /* Makes clicking hero buttons slide smoothly */
+    scroll-behavior: smooth; 
 }
 
 * {
@@ -150,21 +150,64 @@ header nav a:hover {
     cursor: pointer;
 }
 
-/* Grid & Cards */
-.book-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+/* Container for Title and Arrows */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
+/* The 'Camera Lens' - everything outside this box is hidden */
+.scroll-window {
+    overflow: hidden;
+    padding: 10px 5px;
+}
+
+/* The 'Film Strip' - this is what actually moves */
+.book-grid {
+    display: flex; /* Crucial: lines books up horizontally */
+    gap: 25px;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth sliding */
+}
+
+/* Prevent cards from shrinking or wrapping */
 .book-card {
+    min-width: 230px; 
+    flex-shrink: 0;   /* Keeps them from getting squished */
     border: 1px solid #e5e5e5;
     border-radius: 8px;
-    overflow: hidden;
-    transition: 0.2s;
+    background: #fff;
+    transition: transform 0.2s;
 }
 
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Navigation Buttons */
+.scroll-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.arrow-btn {
+    background: #3B0764;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-btn:hover {
+    background: #7c3aed;
+}
 /* Fixed Container: This traps the badge inside the box */
 .book-img-container { 
     position: relative; 
@@ -181,12 +224,11 @@ header nav a:hover {
     display: block; 
 }
 
-/* The Badge will now stay pinned to the top-right of the image */
 .badge {
     position: absolute;
     top: 10px; 
     right: 10px;
-    z-index: 10; /* Ensures it stays on top of the image */
+    z-index: 10; 
     font-size: 10px;
     padding: 4px 10px;
     border-radius: 4px;
