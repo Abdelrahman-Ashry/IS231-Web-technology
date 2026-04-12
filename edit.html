@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Edit book1</title>
+        <link rel="icon" type="image/png" href="site-icon.png">
+        <link rel="stylesheet" href="edit-book.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body>  
+
+    <nav class="navbar">
+      <div class="nav-logo">
+        <a href="home.html" class="nav-logo">
+        <img src="logo.png"  class="logo">
+        </a>
+      </div>
+
+      <div class="nav-links">
+        <a href="admin-dashboard.html">Manage Books</a> 
+        <a href="Add book.html">Add New Book</a> 
+        <a href="logout.html">Logout</a>
+      </div>
+    </nav>
+
+    <div class="page-container"><br>
+     <form  id="editForm">
+      <div class="edit-box">
+
+       <h2>Edit existing book</h2>
+
+        <div class="edit-layout">
+        
+            <div class="cover-section">
+                <img src="The Great Gatspy.jpg" 
+                alt="Book Cover" 
+                id="coverPhoto"
+                class="cover-photo">
+
+            <div class="cover-buttons">
+               <label class="change-cover-button">Change<input type="file" id="coverInput"> 
+               </label>
+               <button class="delete-cover-button" id="deleteCover">Delete</button>
+              </div>
+            </div>
+
+            <div class="book-info">
+
+              <!--ISBN-->
+              <label>ISBN:</label><br>
+              <input type="text" id="isbn" readonly>
+              <br><br>
+
+              <!--Book Name-->
+              <label>Book Name:</label><br>
+              <input type="text" id="bookName">
+              <br><br>
+
+              <!--Author-->
+              <label>Author:</label><br>
+              <input type="text" id="author">
+              <br><br>
+
+              <!--Category-->
+              <label>Category:</label><br>
+              <select id="category">
+              <option>Fiction</option>
+              <option>Non-Fiction</option>
+              <option>Education</option>
+              <option>Science</option>
+              <option>Technology</option>
+              <option>Self-Development</option>
+              <option>Children</option>
+              </select> 
+              <br><br>
+
+
+              <!--Availability-->
+              <label>Availability:</label><br>
+              <select id="availability">
+              <option>Available</option>
+              <option>Not Available</option>
+              <option>Borrowed</option>
+              <option>Reserved</option>
+              <option>Out of stock</option>
+              </select>
+              <br><br>
+
+              <!--Published Year-->
+              <label>Published Year:</label><br>
+              <input type="number" id="year" min="1800" max="2026">
+              <br><br>
+
+              <!--Copies-->
+              <label>Number of Copies:</label><br>
+              <input type="number" id="copies" min="0" step="1">
+              <br><br>
+
+              <!--Description-->
+              <label>Description:</label>
+              <br>
+              <textarea id = "description" rows="8" cols="40"></textarea>
+              <br><br>
+
+              <!--Buttons-->
+              <div class="submit-buttons">
+              <button type="submit" class="Update-button" id="updateBtn">Update</button>
+              <button type="reset" class="Clear-button" id="clearBtn">Clear</button>
+           </div>
+          </div>
+        </div>
+       </div>
+      </div>
+
+    </form>
+
+   <script src="data.js"></script>
+   <script src="edit-book.js"></script>
+
+  </body>
+
+
+  <footer class="footer">
+   <div class="footer-container">
+     <p>&copy; 2026 Online Library. All rights reserved.</p>
+     <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+     </div>
+    </div>
+  </footer>
+
+</html>
