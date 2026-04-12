@@ -4,7 +4,7 @@ let books = [
         author: "F. Scott Fitzgerald", 
         category: "Fiction", 
         year: "1950", 
-        copies: 5,
+        copies: 2,
         cover: "images/The_Great_Gatsby_Cover.jpg"
     },
     {   id: 1002, 
@@ -25,24 +25,3 @@ let books = [
     }
 ];
 let borrowedBooks = [];
-
-const borrowBtn = document.getElementById("borrowBtn");
-const message = document.getElementById("message");
-
-
-//helper functions
-function findBookById(id){
-    return books.find(book => book.id === id);
-}
-function isAvailable(book){
-    return book.copies > 0;
-}
-function showMessage(msg){
-    message.textContent(msg);
-}
-function processBorrow(book){
-    book.copies = book.copies - 1;
-    borrowedBooks.push(book);
-}
-
-

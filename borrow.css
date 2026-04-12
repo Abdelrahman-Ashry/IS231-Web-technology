@@ -1,11 +1,11 @@
 .borrowBookPage *{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Open Sans", sans-serif;
     box-sizing: border-box;
 }
 body.borrowBookPage{
-    background-color: rgb(245, 240, 240);
+    background-color:rgb(237, 234, 255);
     margin: 0em;
     padding: 0em;
 }
@@ -15,7 +15,7 @@ body.borrowBookPage{
     display: flex;
     align-items: center;
     justify-content: space-between; 
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(58, 7, 100);
     padding: 0 5em;
     margin-bottom: 3em;
 }
@@ -25,9 +25,8 @@ body.borrowBookPage{
     gap: 15px;
 }
 .borrowBookPage .logo img{
-    width: 50px;
-    height: 50px;  
-    margin-right: 2em;
+    width: 80px;
+    height: 80px;  
 }
 .borrowBookPage .nav-links{
     align-items: center;
@@ -37,31 +36,26 @@ body.borrowBookPage{
     gap: 1em;
 }
 .borrowBookPage .nav-links a{
-    color: rgb(194, 194, 194);
+    color: white;
     text-decoration: none;
 }
 .borrowBookPage .nav-links a:hover{
+    color: rgb(139, 92, 246);
     text-decoration: underline;
 }
-.borrowBookPage .logout{
-    color: rgb(194, 194, 194);
-    text-decoration: none;
-    font-size: 1.2em;
-    margin-right: 1em;
-}
-.borrowBookPage .logout:hover{
+.borrowBookPage #logout:hover{
     color: red;
     text-decoration: underline;
 }
 .borrowBookPage h1{
     text-align: center;
-    color: rgb(51, 51, 51);
+    color: rgb(58, 7, 100);
 }
 .borrowBookPage fieldset{
-    background-color: white;
-    border: 2px solid rgb(194, 194, 194);
+    background-color: rgb(255, 255, 255);
+    border: 0.5px solid rgb(109, 40, 217);
     border-radius: 1em;
-    margin: 2em 10em;
+    margin: 2em 10%;
     padding: 0.1em 2em 2em;
 }
 .borrowBookPage .bookDetails{
@@ -77,27 +71,35 @@ body.borrowBookPage{
 }
 .borrowBookPage .bookInfo p{
     text-align: left;
+    font-size: large;
+    margin-bottom: 20px;
+    color: rgb(58, 7, 100);
+}
+.borrowBookPage .bookInfo p:first-of-type{
+    margin-top: 2.5em;
 }
 .borrowBookPage legend{
     font-size: 1.5em;
     font-weight: bold;
-    color: rgb(51, 51, 51);
+    color: rgb(58, 7, 100);
 }
 .borrowBookPage label{
-    color: rgb(51, 51, 51);
+    color: rgb(58, 7, 100);
     display: block;
     margin-top: 1em;
     margin-bottom: 3px;
+    cursor: text;
 }
 .borrowBookPage input{
     padding: 0.5em;
-    border: 1px solid rgb(194, 194, 194);
+    border: 1px solid rgb(109, 40, 217);
     border-radius: 0.5em;
-    color: rgb(100, 100, 100);
+    color: rgb(58, 7, 100);
+    cursor: text;
 }
 .borrowBookPage input:focus, .borrowBookPage textarea:focus, .borrowBookPage {
     outline: none;
-    border-color: rgb(192, 0, 0);
+    border-color: rgb(58, 7, 100);
 }
 .borrowBookPage input[type="number"]{
     width: 100%;
@@ -110,16 +112,17 @@ body.borrowBookPage{
 .borrowBookPage .dates input[type="date"]{
     width: 100%;
     margin-top: 0cm;
+    cursor: pointer;
 }
 .borrowBookPage textarea{
     width: 100%;
     padding: 0.5em;
-    border: 1px solid rgb(194, 194, 194);
+    border: 1px solid rgb(109, 40, 217);
     border-radius: 0.5em;
-    color: rgb(100, 100, 100);
+    color: rgb(58, 7, 100);
 }
 .borrowBookPage textarea::placeholder{
-    color: rgb(100, 100, 100);
+    color: rgb(58, 7, 100)
 }
 .borrowBookPage .payment-method input[type="radio"] + label{
     display: inline-block;
@@ -128,17 +131,21 @@ body.borrowBookPage{
 }
 .borrowBookPage .payment-method input[type="radio"]{
     margin-left: 50px;
-    accent-color: rgb(192, 0, 0);
+    accent-color:  rgb(58, 7, 100);
+    cursor: pointer;
+}
+.borrowBookPage .payment-method input[type="radio"]::before{
+    border-color: rgb(58, 7, 100);
 }
 .borrowBookPage .payment-method input[type="radio"]:first-of-type{
     margin-left: 0px;
 }
 .borrowBookPage .newspaper input[type="checkbox"] + label{
     display: inline-block;
-
 }
 .borrowBookPage .newspaper input[type="checkbox"]{
-    accent-color: rgb(192, 0, 0);
+    accent-color: rgb(58, 7, 100);
+    cursor: pointer;
 }
 .borrowBookPage input[type="submit"]{
     display: flex;
@@ -146,26 +153,37 @@ body.borrowBookPage{
     font-size: 1em;
     height: 3em;
     width: 10em;
-    border: 0.5px solid rgb(51, 51, 51);
+    border: 0.5px solid  rgb(58, 7, 100);
     border-radius: 0.5em;
-    color: rgb(51, 51, 51);
-    background-color: rgb(194, 194, 194);
+    color: rgb(58, 7, 100);
+    background-color: rgb(237, 234, 255);
 }
-.borrowBookPage input[type=submit]:hover{
+.borrowBookPage input[type=submit]:hover:enabled{
+    box-shadow: 0px 0px 40px rgba(109, 40, 217, 0.9);
     animation: buttonHover 0.5s forwards;
+    cursor: pointer;
 }
 @keyframes buttonHover{
-    0% { scale: 1; 
-    color: rgb(51, 51, 51);
-    background-color: rgb(194, 194, 194);
+    0% {
+    color: rgb(58, 7, 100);
+    background-color: rgb(237, 234, 255);
     }
-    100% { scale: 0.95;
-    color: rgb(194, 194, 194);
-    background-color: rgb(51, 51, 51);
+    100% {
+    color: rgb(237, 234, 255);
+    background-color: rgb(58, 7, 100);
     }
 }
+.borrowBookPage input[type=submit]:active{
+    cursor:grabbing;
+}
+.borrowBookPage input[type=submit]:disabled{
+    color: rgb(120, 97, 156);
+    background-color: rgb(196, 196, 196);
+    border-color: rgb(120, 97, 156);
+    cursor: not-allowed ;
+}
 .borrowBookPage #message{
-    color: rgb(51, 51, 51);
+    color: rgb(58, 7, 100);
     margin-top: 1em;
     text-align: center;
 }
@@ -174,8 +192,8 @@ body.borrowBookPage{
     align-items: center;
     justify-content: space-between; 
     height: 80px;
-    background-color: rgb(51, 51, 51);
-    color: rgb(194, 194, 194);
+    background-color: rgb(58, 7, 100);
+    color: rgb(237, 234, 255);
     padding: 0 5em;
     margin-top: 3em;
     gap: 2em;
@@ -185,7 +203,7 @@ body.borrowBookPage{
     gap: 1em;
 }
 .borrowBookPage .footer a{
-    color: rgb(194, 194, 194);
+    color: rgb(237, 234, 255);
     text-decoration: none;
 }
 .borrowBookPage .footer a:hover{

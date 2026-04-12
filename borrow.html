@@ -4,44 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="borrow_style.css">
+    <link rel="stylesheet" href="borrow.css">
     <script src="https://kit.fontawesome.com/1076022f5d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <title>Borrow book</title>
 </head>
 
 <body class="borrowBookPage">
 
     <header class="navbar">  
+        <div class="logo">
+            <a href="user_dashboard.html">
+                <img src="images/logo.png" alt="logo">
+            </a>
+        </div>
         <nav class="nav-links">
-            <div class="logo">
-                <a href="user_dashboard.html">
-                    <img src="images/lines-leaning-white.png" alt="logo">
-                </a>
-            </div>
-
             <a href="user_dashboard.html">Library Catalog</a>
             <a href="borrowed_books.html">My Borrowed Books</a>
+            <a id="logout" href="login.html">Log out</a>
         </nav>
-        <a class="logout" href="login.html">Log out</a>
+
     </header>
 
     
     <h1>Borrow book</h1>
 
-    <fieldset>
+    <fieldset class="book">
         <legend>Book Details</legend>
         <div class="bookDetails">
             <img id="bookCover" src="" alt="book cover">
             <div class="bookInfo">
                 <p id="bookTitle"></p>
-                <p id="bookAuther"></p>
+                <p id="bookAuthor"></p>
                 <p id="bookCategory"></p>
                 <p id="bookYear"></p>
             </div>
         </div>
     </fieldset>
     
-    <form action="#" method="post"> 
+    <form id="borrowForm" action="#" method="post"> 
         <fieldset>
             <legend>Borrowing Details</legend>
 
@@ -86,7 +87,7 @@
                 <label for="newspaper">Subscribe to our newspaper</label>
             </div>
     <!--Buttons-->
-            <input id="borrowBtn" type="submit" value="Borrow book" onclick="">
+            <input id="borrowBtn" type="submit" value="Borrow book">
     <!--Message-->
             <p id="message"></p>
         </fieldset>
@@ -107,8 +108,10 @@
             <a href="#">Help</a>
         </div>
     </footer>
+  
+    <script src="data.js"></script>
+    <script src="borrow.js"></script>
 
-    <script src="script.js"></script>
 </body>
 
 </html>
