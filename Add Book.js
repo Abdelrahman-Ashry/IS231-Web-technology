@@ -21,6 +21,18 @@ function saveBook() {
 
     alert("Book Saved!");
 }
+function filterByCategory(category) {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    let filtered = books.filter(book => book.category === category);
+
+    console.log(filtered);
+}
+function countBooks() {
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+
+    document.getElementById("count").innerText = books.length;
+}
 function clearForm() {
     if (confirm("Are you sure?")) {
         document.querySelectorAll("input, textarea").forEach(el => el.value = "");
