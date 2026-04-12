@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>User Dashboard - Library</title>
-    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="../CSS/User.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,16 +14,14 @@
     <header>
         <div class="logo-group">
             <div class="logo">
-                <img src="logo.jpg" alt="logo">
+                <img src="../Images/logo.png" alt="logo">
             </div>
-            <div class="o">
-                <h1>Online Library</h1>
-            </div>
+
         </div>
         <nav>
-            <a href="user_dashboard.html" class="nav-active">Library Catalog</a>
-            <a href="borrowed_books.html">My Borrowed Books</a>
-            <a href="login.html" class="nav-logout">Logout</a>
+            <a href="User_Dashboard.html" class="nav-active">Library Catalog</a>
+            <a href="My_Borrowed.html">My Borrowed Books</a>
+            <a href="Login.html" class="nav-logout">Logout</a>
         </nav>
     </header>
 
@@ -41,7 +39,7 @@
                 <div class="search-bar">
                     <input type="text" id="search_query" name="search_query" placeholder="Search by title or author...">
                     <select id="search_category" name="search_category">
-                        <option value="" disabled selected>-- All Categories --</option>
+                        <option value="">All Categories</option>
                         <option value="fiction">Fiction</option>
                         <option value="non-fiction">Non-Fiction</option>
                         <option value="science">Science</option>
@@ -72,7 +70,7 @@
                 <!-- Card 1 -->
                 <div class="book-card">
                     <div class="book-cover">
-                        <img src="b1.png" alt="The Great Gatsby">
+                        <img src="../Images/b1.png" alt="The Great Gatsby">
                         <span class="badge badge-available">Available</span>
                     </div>
                     <div class="book-info">
@@ -91,7 +89,7 @@
                 <!-- Card 2 -->
                 <div class="book-card">
                     <div class="book-cover">
-                        <img src="b2.png" alt="Introduction to Algorithms">
+                        <img src="../Images/b2.png" alt="Introduction to Algorithms">
                         <span class="badge badge-unavailable">Not Available</span>
                     </div>
                     <div class="book-info">
@@ -103,14 +101,14 @@
                         </div>
                     </div>
                     <div class="book-actions">
-                        <span class="btn-borrow-disabled">Not Available</span>
+                        <a href="book_details2.html" class="btn-borrow">View Details</a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="book-card">
                     <div class="book-cover">
-                        <img src="b3.png" alt="Python Programming">
+                        <img src="../Images/b3.png" alt="Python Programming">
                         <span class="badge badge-available">Available</span>
                     </div>
                     <div class="book-info">
@@ -137,6 +135,10 @@
         <p>&copy; 2026 Online Library Website</p>
         <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
     </footer>
+
+    <script src="../JS/User.js"></script>
+    <script src="../JS/data.js"></script>
+    <script src="../JS/borrow.js"></script>
 
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Online Library System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,15 +13,13 @@
     <div class="blackbar">
         <div class="logo-group">
             <div class="logo">
-                <img src="logo.png" alt="logo">
+                <img src="../images/logo.png" alt="logo">
             </div>
-            <div class="o">
-                <h1>Online Library</h1>
-            </div>
+
         </div>
         <nav class="auth-links">
-            <a href="login.html">Log In</a>
-            <a href="Sign_up.html">Sign Up</a>
+            <a href="../html/login.html">Log In</a>
+            <a href="../html/Sign up.html">Sign Up</a>
         </nav>
     </div>
 </header>
@@ -58,7 +56,7 @@
                 <div class="role-selection">
                     <label>Account Role:</label>
                     <div class="radio-group">
-                        <input type="radio" id="role_user" name="is_admin" value="user" required checked>
+                        <input type="radio" id="role_user" name="is_admin" value="user" required>
                         <label for="role_user">User</label>
                         <input type="radio" id="role_admin" name="is_admin" value="admin" required>
                         <label for="role_admin">Admin</label>
@@ -79,7 +77,7 @@
     <p>&copy; 2026 Online Library Website | <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
 </footer>
 <button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
-<script src="auth.js"></script>
+<script src="../js/auth.js"></script>
 
 </body>
 </html>

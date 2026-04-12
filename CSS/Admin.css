@@ -7,8 +7,8 @@
 
 /* ===== BODY ===== */
 body {
-    background-color: #eeece8;
-    font-family: Arial, sans-serif;
+    background-color: #f6f4ff;
+    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     min-height: 100vh;
     display: flex;
@@ -30,7 +30,7 @@ img {
 header {
     width: 100%;
     height: 80px;
-    background-color: black;
+    background-color: #3B0764;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,70 +46,39 @@ header {
 .logo-group {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 /* ===== LOGO — small white circle like login page ===== */
 .logo {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: white;
-    border: 2px solid white;
-    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+
 }
 
 .logo img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    display: block;
+    object-fit: cover;
 }
 
-/* Also support .header-logo class */
-.header-logo {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: white;
-    border: 2px solid white;
-    flex-shrink: 0;
-}
-
-.header-logo img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-}
 
 /* ===== TITLE — italic white, same as login page ===== */
+
 .o h1 {
-    font-family: "Story Script", cursive;
-    font-size: 24px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
     color: white;
+    font-style: italic;
 }
 
 .U h1 {
-    font-family: "Story Script", cursive;
-    font-size: 28px;
-    color: #1a1a1a;
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    color: #2f054f;
 }
 
-.header-title {
-    font-family: Arial, sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    font-style: italic;
-    color: white;
-    letter-spacing: 0.3px;
-}
 
 /* Nav links (right side) */
 nav {
@@ -119,13 +88,13 @@ nav {
 }
 
 nav a {
-    color: #7eb5dd;
-    font-size: 18px;
+    color: white;
+    font-size: 15px;
     font-weight: bold;
     padding: 6px 16px;
     border-radius: 6px;
     border: 1px solid transparent;
-    font-family: "Story Script", cursive;
+    font-family: "Open Sans", sans-serif;
 }
 
 nav a:hover,
@@ -136,12 +105,11 @@ nav a.nav-active {
 }
 
 nav a.nav-logout {
-    color: #f87171;
+    color: white;
 }
 
 nav a.nav-logout:hover {
-    background-color: rgba(220, 38, 38, 0.18);
-    color: #fca5a5;
+    background-color: rgba(255, 0, 0, 0.759);
 }
 
 /* Auth links style (login page) */
@@ -151,8 +119,8 @@ nav a.nav-logout:hover {
 }
 
 .auth-links a {
-    color: #7eb5dd;
-    font-size: 18px;
+    color: #EDE9FE;
+    font-size: 15px;
     font-weight: bold;
     font-style: italic;
 }
@@ -192,22 +160,22 @@ section {
 .section-header h2 {
     font-size: 20px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #2f054f;
 }
 
 /* Add New Book button */
 .btn-add {
-    background-color: #1a9bba;
+    background-color: #3B0764;
     color: white;
     padding: 10px 20px;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(26, 155, 186, 0.30);
 }
 
 .btn-add:hover {
-    background-color: #137a94;
+    background-color: #5e3fa5;
     color: white;
 }
 
@@ -232,8 +200,8 @@ section {
 
 .book-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(26, 155, 186, 0.18);
-    border-color: #a5d8e6;
+    box-shadow: 0 8px 30px #EDE9FE;
+    border-color:#EDE9FE;
 }
 
 /* Book cover image */
@@ -262,7 +230,7 @@ section {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
     padding: 3px 10px;
     border-radius: 20px;
@@ -272,7 +240,7 @@ section {
 
 .badge-available {
     background-color: #f0fdf4;
-    color: #16a34a;
+    color: #8B5CF6;
     border: 1px solid rgba(22, 163, 74, 0.22);
 }
 
@@ -292,7 +260,7 @@ section {
 }
 
 .book-id {
-    font-size: 12px;
+    font-size: 10px;
     color: #999999;
     font-weight: 500;
 }
@@ -300,13 +268,13 @@ section {
 .book-title {
     font-size: 15px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #2f054f;
     line-height: 1.3;
 }
 
 .book-author {
-    font-size: 13px;
-    color: #555555;
+    font-size: 15px;
+    color: #2f054f;
     font-style: italic;
 }
 
@@ -319,9 +287,9 @@ section {
 }
 
 .meta-tag {
-    background-color: #e6f7fb;
-    color: #137a94;
-    font-size: 11px;
+    background-color:#EDE9FE;
+    color: #8B5CF6;
+    font-size: 10px;
     font-weight: 600;
     padding: 3px 9px;
     border-radius: 20px;
@@ -330,7 +298,7 @@ section {
 .meta-copies {
     background-color: #eeece8;
     color: #555555;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     padding: 3px 9px;
     border-radius: 20px;
@@ -351,20 +319,20 @@ section {
     text-align: center;
     padding: 7px 0;
     border-radius: 6px;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
 }
 
 .btn-edit {
-    background-color: #e6f7fb;
-    color: #137a94;
-    border: 1px solid #a5d8e6;
+    background-color: #EDE9FE;
+    color: #8B5CF6;
+    border: 1px solid #EDE9FE;
 }
 
 .btn-edit:hover {
-    background-color: #1a9bba;
+    background-color: #8B5CF6   ;
     color: white;
-    border-color: #1a9bba;
+    border-color: #EDE9FE;
 }
 
 .btn-delete {
@@ -422,7 +390,7 @@ input[type="text"] {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 15px;
     background-color: #fff;
 }
 
@@ -435,12 +403,12 @@ input[type="text"] {
 
 .label-row label {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
     color: #333;
 }
 
 .small-link {
-    font-size: 13px;
+    font-size: 15px;
     color: #0074b1;
     text-decoration: underline;
 }
@@ -471,7 +439,7 @@ input[type="text"] {
 /* ===== FOOTER ===== */
 footer,
 .site-footer {
-    background-color: rgb(0, 0, 0);
+    background-color: #3B0764;
     color: rgba(255, 255, 255, 0.45);
     text-align: center;
     padding: 20px;
@@ -481,17 +449,17 @@ footer,
 
 footer p,
 .site-footer p {
-    color: rgb(0, 217, 255);
+    color: white;
 }
 
 footer a,
 .site-footer a {
-    color: rgba(255, 255, 255, 0.65);
+    color: #8B5CF6;
 }
 
 footer a:hover,
 .site-footer a:hover {
-    color: white;
+    color: #8B5CF6;
 }
 
 /* ===== RESPONSIVE ===== */

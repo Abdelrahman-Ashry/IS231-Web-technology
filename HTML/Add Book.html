@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>  
+<head>  
+    <title>Add Book Page</title>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="U can add your desired book "/>
+    <link rel="stylesheet" href="../css/Add Book.css"/>
+    <script src="../js/Add Book.js"></script>
+
+   
+</head>
+<body>
+<header>
+   <nav class="navbar">
+    <div class="logo">
+        <img src="../images/logo.png" width="40" height="40" alt="logo" shape="circle">
+    </div>
+    <div class="links">
+        <a href="../html/admin_dashboard.html">Manage Books</a>
+        <a href="../html/Add Book.html">Add New Book</a>
+        <a href="../html/login.html">Logout</a>
+    </div>
+
+</nav>
+</header>
+
+<div class="container">   
+    <h2>Please Add a New Book </h2>
+<label> ISBN:</label>
+<br><input type="int"size=20 maxlength=30 placeholder="Enter Book ID"><br><br>
+<label>Book Title:</label>
+<br><input type="text" size=20 maxlength=30 placeholder="Enter Book Title"><br><br>
+<label>Book Image</label>
+<input type="file" name="book_image" accept="image/*"><br><br>
+<label>Author Name:</label>
+<br><input type="text" size=20 maxlength=30 placeholder="Enter Author Name"><br><br>
+<label>Publisher Name:</label>
+<br><input type="text" size=20 maxlength=30 placeholder="Enter Publisher Name"><br><br>
+<label>Publication Year:</label>
+<br><input type="int" size=20 maxlength=30 placeholder="Enter Publication Year"><br><br>
+<label>Number of Copies:</label>
+<br><input type="int" size=20 maxlength=30 placeholder="Enter Number of Copies"><br><br>
+<form method="post" action="mailto:youremail@email.com">
+<label>Category:</label>
+<select name="choice">
+<option value="" disabled selected>--Select a Category--</option>
+<option>Fiction</option>
+<option>Non-Fiction</option>
+<option>Science</option>
+<option>Education</option>
+<option>Technology</option>
+<option>History</option>
+<option>Self-Development</option>
+<option>Philosophy</option>
+<option>Religion</option>
+<option>Children's Books</option>
+</select>
+</form><br/>
+<form method="post" action="mailto:youremail@email.com">
+
+<label>Status:</label>
+<select name="choice">
+<option value="" disabled selected>-- Select Status --</option>
+<option>Available</option>
+<option>Borrowed</option>
+<option>Reserved</option>
+<option>Out of Stock</option>
+</select>
+</form><br/>
+<label>Description:</label>
+<br><br>
+<textarea rows="5" cols="50" placeholder="Enter Book Description Here:" >
+</textarea><br><br>
+<button onclick="validateForm()"  type="submit">Add Book</button>
+<button onclick="clearForm()" type="reset">Clear</button>    
+<!-- java successful message-->
+<p id="msg"></p>
+</div>
+        <footer>
+            <p><label> &copy; 2026 Online Library Website</label></p>
+        </footer>
+</body>
+</html>
+
+
+       
+
+
+       

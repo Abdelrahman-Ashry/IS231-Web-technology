@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Borrowed Books</title>
+    <link rel="stylesheet" href="../CSS/My_Borrowed.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+    <div class="logo-group">
+        <div class="logo">
+            <img src="../Images/logo.png" alt="Online Library Logo">
+        </div>
+
+    </div>
+    <nav>
+        <a href="User_Dashboard.html">Library Catalog</a>
+        <a href="My_Borrowed.html" class="nav-active">My Borrowed Books</a>
+        <a href="Login.html" class="nav-logout">Logout</a>
+    </nav>
+</header>
+
+
+<!-- ========== PAGE WRAPPER ========== -->
+<div class="page-wrapper">
+
+    <!-- Page Title -->
+    <div class="U">
+        <h1>My Borrowed Books</h1>
+    </div>
+
+    <!-- ========== BORROWED BOOKS GRID ========== -->
+    <section class="borrowed-section">
+        <div class="section-header">
+            <h2>Books I Have Borrowed</h2>
+        </div>
+
+        <div class="books-grid">
+
+            <!-- ===== Card 1 ===== -->
+            <div class="book-card">
+
+                <!-- Book Cover + Status Badge -->
+                <div class="book-cover">
+                    <img src="../Images/b1.png" alt="The Great Gatsby">
+                    <span class="badge badge-borrowed">Borrowed</span>
+                </div>
+
+                <!-- Book Info -->
+                <div class="book-info">
+                    <span class="book-id">#1001</span>
+                    <h3 class="book-title">The Great Gatsby</h3>
+                    <p class="book-author">F. Scott Fitzgerald</p>
+                    <div class="book-meta">
+                        <span class="meta-tag">Fiction</span>
+                    </div>
+                </div>
+
+                <!-- Dates (below image area) -->
+                <div class="book-dates">
+                    <div class="date-row">
+                        <span class="date-label">📅 Borrowed</span>
+                        <span class="date-value">01-03-2026</span>
+                    </div>
+                    <div class="date-row">
+                        <span class="date-label">🔁 Return by</span>
+                        <span class="date-value">10-03-2026</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end Card 1 -->
+
+
+            <!-- ===== Card 2 ===== -->
+            <div class="book-card">
+
+                <!-- Book Cover + Status Badge -->
+                <div class="book-cover">
+                    <img src="../Images/b2.png" alt="Introduction to Algorithms">
+                    <span class="badge badge-borrowed">Borrowed</span>
+                </div>
+
+                <!-- Book Info -->
+                <div class="book-info">
+                    <span class="book-id">#1002</span>
+                    <h3 class="book-title">Introduction to Algorithms</h3>
+                    <p class="book-author">Thomas H. Cormen</p>
+                    <div class="book-meta">
+                        <span class="meta-tag">Education</span>
+                    </div>
+                </div>
+
+                <!-- Dates (below image area) -->
+                <div class="book-dates">
+                    <div class="date-row">
+                        <span class="date-label">📅 Borrowed</span>
+                        <span class="date-value">03-03-2026</span>
+                    </div>
+                    <div class="date-row">
+                        <span class="date-label">🔁 Return by</span>
+                        <span class="date-value">12-03-2026</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end Card 2 -->
+
+        </div>
+        <!-- end books-grid -->
+
+    </section>
+
+</div>
+<!-- end page-wrapper -->
+
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <p>&copy; 2026 Online Library Website</p>
+    <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - Python Programming</title>
+    <link rel="stylesheet" href="../CSS/Book_Details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+    <div class="logo-group">
+        <div class="logo">
+            <img src="../Images/logo.png" alt="Online Library Logo">
+        </div>
+
+    </div>
+    <nav>
+        <a href="User_Dashboard.html">Library Catalog</a>
+        <a href="My_Borrowed.html">My Borrowed Books</a>
+        <a href="Login.html" class="nav-logout">Logout</a>
+    </nav>
+</header>
+
+
+<!-- ========== MAIN CONTENT ========== -->
+<div class="page-wrapper">
+
+    <!-- Page Title -->
+    <div class="U">
+        <h1>Book Details</h1>
+    </div>
+
+    <!-- ===== BOOK CARD (image right + info left) ===== -->
+    <div class="book-details-card">
+
+        <!-- LEFT SIDE — Book Info -->
+        <div class="book-info-side">
+
+            <!-- Book title + ID -->
+            <div class="book-header">
+                <span class="book-id">#1003</span>
+                <h2 class="book-title">Python Programming</h2>
+                <p class="book-author">John Doe</p>
+            </div>
+
+            <!-- Status badge -->
+            <span class="badge badge-available">Available</span>
+
+            <!-- Details list -->
+            <ul class="details-list">
+                <li>
+                    <span class="detail-label">Category</span>
+                    <span class="detail-value">Education</span>
+                </li>
+                <li>
+                    <span class="detail-label">Published Year</span>
+                    <span class="detail-value">1980</span>
+                </li>
+                <li>
+                    <span class="detail-label">Number of Copies</span>
+                    <span class="detail-value">3 copies</span>
+                </li>
+            </ul>
+
+            <!-- Description -->
+            <div class="description-box">
+                <h3>Description</h3>
+                <p>A comprehensive guide to mastering Python, starting from fundamental concepts like variables, data types, and control structures.</p>
+            </div>
+
+            <!-- Borrow Button -->
+            <form action="Borrow.html" method="POST">
+                <input type="hidden" name="book_id" value="1003">
+                <button type="submit" class="btn-borrow">Borrow this Book</button>
+            </form>
+
+        </div>
+        <!-- end book-info-side -->
+
+        <!-- RIGHT SIDE — Book Cover Image -->
+        <div class="book-image-side">
+            <img src="../Images/b3.png" alt="Python Programming Cover">
+        </div>
+
+    </div>
+    <!-- end book-details-card -->
+
+</div>
+<!-- end page-wrapper -->
+
+
+<!-- ========== FOOTER ========== -->
+<footer>
+    <p>&copy; 2026 Online Library Website</p>
+    <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+<script src="../JS/data.js"></script>        
+<script src="../JS/borrow.js"></script>
+
+</body>
+</html>
