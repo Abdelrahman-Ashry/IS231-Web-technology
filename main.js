@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => moveSlider('next'));
     prevBtn.addEventListener('click', () => moveSlider('prev'));
 
-    // --- SEARCH LOGIC (Updated to work with Slider) ---
     function filterBooks() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCategory = categorySelect.value.toLowerCase();
