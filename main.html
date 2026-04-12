@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Library</title>
+    <link rel="stylesheet" href="style_main.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+
+<header>
+    <a href="main.html" class="logo">
+        <img src="logo.png" alt="Online Library Logo"> <span>Online Library</span>
+    </a>
+
+    <nav>
+        <a href="login.html">Log In</a>
+        <a href="Sign up.html" class="signup-link">Sign Up</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Your Gateway to a World of Knowledge</h1>
+            <p>Access thousands of digital and physical books from our community-driven collection. Start your journey today.</p>
+            <div class="hero-btns">
+                <a href="#catalog">Explore Catalog</a>
+                <a href="#how-it-works" class="hero-btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section" aria-label="Book search">
+        <div class="search-container">
+            <h2>Search for Books</h2>
+            <div class="search-flex">
+                <input type="text" id="search-input" placeholder="Search by title or author...">
+                <select id="category">
+                    <option value="">-- All Categories --</option>
+                    <option value="fiction">Fiction</option>
+                    <option value="education">Education</option>
+                    <option value="science">Science</option>
+                </select>
+                <button type="button" id="search-button" class="search-btn">Search</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalog" class="catalog-container" aria-label="Featured books">
+        <h2>Featured Books</h2>
+        <div class="book-grid">
+            <div class="book-card">
+                <div class="book-img-container">
+                    <span class="badge">AVAILABLE</span>
+                    <img src="images/The_Great_Gatsby_Cover.jpg" alt="The Great Gatsby cover"> </div>
+                <div class="book-info">
+                    <p class="book-id">#1001</p>
+                    <h3>The Great Gatsby</h3>
+                    <p class="author">F. Scott Fitzgerald</p>
+                    <span class="genre-tag">Fiction</span>
+                    <button type="button" class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-img-container">
+                    <span class="badge">AVAILABLE</span>
+                    <img src="Book_2.jpg" alt="To Kill a Mockingbird cover"> </div>
+                <div class="book-info">
+                    <p class="book-id">#1002</p>
+                    <h3>To Kill a Mockingbird</h3>
+                    <p class="author">Harper Lee</p>
+                    <span class="genre-tag">Fiction</span>
+                    <button type="button" class="view-btn">View Details</button>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <div class="book-img-container">
+                    <span class="badge">AVAILABLE</span>
+                    <img src="Book_3.jpg" alt="1984 cover"> </div>
+                <div class="book-info">
+                    <p class="book-id">#1003</p>
+                    <h3>1984</h3>
+                    <p class="author">George Orwell</p>
+                    <span class="genre-tag">Fiction</span>
+                    <button type="button" class="view-btn">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works" class="info-section">
+        <h2>How to Use the Library</h2>
+        <div class="info-grid">
+            <div class="info-step">
+                <div class="step-number">1</div>
+                <h3>Search & Discover</h3>
+                <p>Use our advanced filters to find your next great read by title, author, or genre.</p>
+            </div>
+            <div class="info-step">
+                <div class="step-number">2</div>
+                <h3>Reserve or Read</h3>
+                <p>Click "View Details" to reserve a physical copy or start reading digital versions instantly.</p>
+            </div>
+            <div class="info-step">
+                <div class="step-number">3</div>
+                <h3>Manage Account</h3>
+                <p>Sign up to track your borrowing history, renew books, and get personalized suggestions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-bar">
+        <div class="stat-item">
+            <strong>15k+</strong>
+            <span>Books Available</span>
+        </div>
+        <div class="stat-item">
+            <strong>24/7</strong>
+            <span>Digital Access</span>
+        </div>
+        <div class="stat-item">
+            <strong>Free</strong>
+            <span>Membership</span>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 Online Library Website | <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+
+</body>
+</html>
