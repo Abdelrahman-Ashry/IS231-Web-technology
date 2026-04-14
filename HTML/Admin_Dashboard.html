@@ -42,77 +42,19 @@
                 </div>
 
                 <!-- BOOK CARDS GRID -->
-                <div class="books-grid">
-
-                    <!-- Card 1 -->
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <img src="../Images/b1.png" alt="The Great Gatsby">
-                            <span class="badge badge-available">Available</span>
-                        </div>
-                        <div class="book-info">
-                            <span class="book-id">#1001</span>
-                            <h3 class="book-title">The Great Gatsby</h3>
-                            <p class="book-author">F. Scott Fitzgerald</p>
-                            <div class="book-meta">
-                                <span class="meta-tag">Fiction</span>
-                                <span class="meta-tag">1950</span>
-                                <span class="meta-copies">5 copies</span>
-                            </div>
-                            <div class="book-actions">
-                                <a href="edit.html?id=1001" class="btn-edit">✏️ Edit</a>
-                                <a href="#" class="btn-delete" onclick="deleteBook(1001)">🗑️ Delete</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <img src="../Images/b2.png" alt="Introduction to Algorithms">
-                            <span class="badge badge-unavailable">Not Available</span>
-                        </div>
-                        <div class="book-info">
-                            <span class="book-id">#1002</span>
-                            <h3 class="book-title">Introduction to Algorithms</h3>
-                            <p class="book-author">Thomas H. Cormen</p>
-                            <div class="book-meta">
-                                <span class="meta-tag">Education</span>
-                                <span class="meta-tag">1930</span>
-                                <span class="meta-copies">4 copies</span>
-                            </div>
-                            <div class="book-actions">
-                                <a href="edit.html?id=1002" class="btn-edit">✏️ Edit</a>
-                                <a href="#" class="btn-delete" onclick="deleteBook(1002)">🗑️ Delete</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="book-card">
-                        <div class="book-cover">
-                            <img src="../Images/b3.png" alt="Python Programming">
-                            <span class="badge badge-available">Available</span>
-                        </div>
-                        <div class="book-info">
-                            <span class="book-id">#1003</span>
-                            <h3 class="book-title">Python Programming</h3>
-                            <p class="book-author">John Doe</p>
-                            <div class="book-meta">
-                                <span class="meta-tag">Education</span>
-                                <span class="meta-tag">1980</span>
-                                <span class="meta-copies">3 copies</span>
-                            </div>
-                            <div class="book-actions">
-                                <a href="edit.html?id=1003" class="btn-edit">✏️ Edit</a>
-                                <a href="#" class="btn-delete" onclick="deleteBook(1003)">🗑️ Delete</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <div class="books-grid"></div>
                 <!-- end books-grid -->
 
+            </section>
+
+            <!-- Recently Deleted Books Section -->
+            <section class="deleted-section">
+                <div class="section-header">
+                    <h2>🗑️ Recently Deleted Books</h2>
+                </div>
+                <div id="deletedBooksContainer">
+                    <!-- Will be populated by admin.js -->
+                </div>
             </section>
         </main>
 
@@ -122,11 +64,8 @@
     <footer>
         <p>&copy; 2026 Online Library Website</p>
     </footer>
-
-    <script src="../JS/data.js"></script>
-    <script src="../JS/Admin.js"></script>
-    <script src="../JS/borrow.js"></script>
-
+    <script src="../jS/data.js"></script>
+    <script src="../jS/Admin.js"></script>
     
 </body>
 </html>

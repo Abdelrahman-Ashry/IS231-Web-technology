@@ -1,114 +1,64 @@
+// ==================== borrow.js ====================
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get('id'));
 
-const borrowBtn = document.getElementById("borrowBtn");
-const quantityInput = document.getElementById("quantity");
-const message = document.getElementById("message");
-const title = document.getElementById("bookTitle");
-const author = document.getElementById("bookAuthor");
-const category = document.getElementById("bookCategory")
-const year = document.getElementById("bookYear")
+const books = getBooks();
+const book = books.find(b => b.id === id);
 
-
-function goToBorrow(id) {  
-    window.location.href = `borrow.html?id=${id}`;
-}
-function getIdFromURL(){  
-    const params = new URLSearchParams(window.location.search);  
-    return parseInt(params.get("id"));  
-}
-function getBookById(id){
-    return books.find(book => book.id === id);
-}
-function isAvailable(book){
-    return book.copies > 0;
-}
-function processBorrow(book){
-    const quantity = parseInt(quantityInput.value);
-    book.copies -= quantity;
-    borrowedBooks.push(book);
-}
-function showMessage(msg){
-    message.textContent = msg;
-    setTimeout(() => {
-        message.textContent = "";
-    }, 4000);   
-}
-function getTodayDate(){
-    const today = new Date();
-    return today.toISOString().split("T")[0];
+if (!book) {
+    alert('Book not found');
+    window.location.href = 'user_dashboard.html';
 }
 
+// Display book details
+document.getElementById('bookTitle').textContent = `Title: ${book.name}`;
+document.getElementById('bookAuthor').textContent = `Author: ${book.author}`;
+document.getElementById('bookCategory').textContent = `Category: ${book.category}`;
+document.getElementById('bookYear').textContent = `Year: ${book.year}`;
+document.getElementById('bookCover').src = book.cover;
 
-function loadBookDetails(){
+const quantityInput = document.getElementById('quantity');
+quantityInput.max = book.copies;
 
-    const id = getIdFromURL();
-    const book = getBookById(id);
-
-    if(!book){
-        showMessage("Book not found");
-        return;
-    }
-    
-    quantityInput.max = book.copies;
-
-    document.getElementById("bookTitle").textContent = "Title: " + book.name;
-    document.getElementById("bookAuthor").textContent = "Author: " + book.author;
-    document.getElementById("bookCategory").textContent = "Category: " + book.category;
-    document.getElementById("bookYear").textContent = "Year: " + book.year;
-    document.getElementById("bookCover").src = book.cover
-
-    if(!isAvailable(book)){
-        borrowBtn.disabled = true;
-        quantityInput.disabled = true;
-        showMessage("Book is out of stock");
-    }
+if (book.copies === 0) {
+    quantityInput.disabled = true;
+    document.getElementById('borrowBtn').disabled = true;
+    document.getElementById('message').textContent = 'This book is out of stock.';
 }
 
-function borrowBook(event){
-    event.preventDefault()
+// Set min date for borrow date = today
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('bdate').min = today;
 
-    const id = getIdFromURL();
-    const book = getBookById(id);
-    const borrowDate = document.getElementById("bdate");
-    const returnDate = document.getElementById("rdate");
+document.getElementById('borrowForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const borrowDate = document.getElementById('bdate').value;
+    const returnDate = document.getElementById('rdate').value;
     const quantity = parseInt(quantityInput.value);
 
-    if(!book){
-        showMessage("Book not found");
-    }
-    if(borrowDate.value < getTodayDate()){
-        showMessage("Borrow date cannot be in the past");
+    if (!borrowDate || !returnDate) {
+        alert('Please select both dates.');
         return;
     }
-    if(returnDate.value <= borrowDate.value){
-        showMessage("Return date must be after borrow date");
+    if (borrowDate < today) {
+        alert('Borrow date cannot be in the past.');
         return;
     }
-    if(quantity > book.copies){
-        showMessage("Not enough copies available");
+    if (returnDate <= borrowDate) {
+        alert('Return date must be after borrow date.');
         return;
     }
-    if (!quantity || quantity<1){
-        showMessage("Enter vaild quantity");
+    if (quantity < 1 || quantity > book.copies) {
+        alert(`Please enter a quantity between 1 and ${book.copies}.`);
+        return;
     }
 
-    processBorrow(book);
-    
-    quantityInput.max = book.copies;
-
-    showMessage("Book borrowed successfully!!"); 
-
-    if(book.copies === 0){
-        borrowBtn.disabled = true;
-        quantityInput.disabled = true;
-        setTimeout(() => {
-            showMessage("Book is now out of stock");
-        }, 4000);
+    const success = borrowBookAction(book.id, borrowDate, returnDate, quantity);
+    if (success) {
+        alert('Book borrowed successfully!');
+        window.location.href = 'my_borrowed.html';
+    } else {
+        alert('Failed to borrow book. Please try again.');
     }
-
-}
-
-const container = document.getElementById("booksContainer");
-
-const borrowForm = document.getElementById("borrowForm");
-borrowForm.addEventListener("submit", borrowBook);
-window.onload = loadBookDetails;
+});

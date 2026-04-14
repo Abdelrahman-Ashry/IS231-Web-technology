@@ -1,28 +1,38 @@
-// ===== ADMIN DASHBOARD =====
-
-window.onload = function () {
+window.addEventListener('DOMContentLoaded', () => {
     loadBooks();
-};
+    loadDeletedBooks();
+
+    const restoreDefaultBtn = document.getElementById('restoreDefaultBtn');
+    if (restoreDefaultBtn) {
+        restoreDefaultBtn.addEventListener('click', () => {
+            if (confirm('Add missing default books?')) {
+                restoreDefaultBooks();
+                loadBooks();
+                alert('Default books restored.');
+            }
+        });
+    }
+});
 
 function loadBooks() {
-    const books = getBooks();   // from data.js
+    const books = getBooks();
     const grid = document.querySelector('.books-grid');
+    if (!grid) return;
 
-    grid.innerHTML = "";
+    grid.innerHTML = '';
 
     if (books.length === 0) {
-        grid.innerHTML = "<p style='color:#999; padding:20px;'>No books available.</p>";
+        grid.innerHTML = '<p style="color:#999; padding:20px;">No books available.</p>';
         return;
     }
 
-    books.forEach(function (book) {
+    books.forEach(book => {
         const isAvailable = book.copies > 0;
-        const badgeClass = isAvailable ? "badge-available" : "badge-unavailable";
-        const badgeText = isAvailable ? "Available" : "Not Available";
+        const badgeClass = isAvailable ? 'badge-available' : 'badge-unavailable';
+        const badgeText = isAvailable ? 'Available' : 'Not Available';
 
-        const card = document.createElement("div");
-        card.className = "book-card";
-
+        const card = document.createElement('div');
+        card.className = 'book-card';
         card.innerHTML = `
             <div class="book-cover">
                 <img src="${book.cover}" alt="${book.name}">
@@ -39,22 +49,73 @@ function loadBooks() {
                 </div>
                 <div class="book-actions">
                     <a href="edit.html?id=${book.id}" class="btn-edit">✏️ Edit</a>
-                    <a href="#" class="btn-delete" onclick="deleteBook(${book.id})">🗑️ Delete</a>
+                    <a href="#" class="btn-delete" data-id="${book.id}">🗑️ Delete</a>
                 </div>
             </div>
         `;
-
         grid.appendChild(card);
+    });
+
+    document.querySelectorAll('.btn-delete').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = Number(btn.dataset.id);
+            if (confirm('Move this book to trash?')) {
+                deleteBookById(id);
+                loadBooks();
+                loadDeletedBooks();
+            }
+        });
     });
 }
 
-function deleteBook(id) {
-    if (!confirm("Are you sure you want to delete this book?")) return;
+function loadDeletedBooks() {
+    const deleted = getDeletedBooks();
+    const container = document.getElementById('deletedBooksContainer');
+    if (!container) return;
 
-    let books = getBooks();
-    books = books.filter(book => book.id !== id);
-    saveBooks(books);   // from data.js
+    if (deleted.length === 0) {
+        container.innerHTML = '<p style="color:#999; padding:20px;">No deleted books.</p>';
+        return;
+    }
 
-    alert("Book deleted successfully.");
-    loadBooks();    // refresh the grid
+    let html = '<div class="deleted-list">';
+    deleted.forEach(book => {
+        html += `
+            <div class="deleted-item">
+                <img src="${book.cover}" alt="${book.name}">
+                <div class="deleted-info">
+                    <strong>${book.name}</strong> by ${book.author} (ID: ${book.id})<br>
+                    <small>Deleted: ${new Date(book.deletedAt).toLocaleString()}</small>
+                </div>
+                <button class="btn-restore" data-id="${book.id}">↻ Restore</button>
+                <button class="btn-permanent-delete" data-id="${book.id}">🗑️ Delete Permanently</button>
+            </div>
+        `;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+
+    document.querySelectorAll('.btn-restore').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = Number(btn.dataset.id);
+            if (confirm('Restore this book?')) {
+                restoreDeletedBook(id);
+                loadBooks();
+                loadDeletedBooks();
+                alert('Book restored.');
+            }
+        });
+    });
+
+    document.querySelectorAll('.btn-permanent-delete').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = Number(btn.dataset.id);
+            if (confirm('Permanently delete this book? This cannot be undone.')) {
+                permanentlyDeleteBook(id);
+                loadDeletedBooks();
+                alert('Book permanently deleted.');
+            }
+        });
+    });
 }
