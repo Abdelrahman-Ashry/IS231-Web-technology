@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - Online Library System</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
     <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,13 +14,12 @@
     <div class="blackbar">
         <div class="logo-group">
             <div class="logo">
-                <img src="../images/logo.png" alt="logo">
+                <img src="{% static 'img/logo.png' %}" alt="logo">
             </div>
-
         </div>
         <nav class="auth-links">
-            <a href="../html/login.html">Log In</a>
-            <a href="../html/Sign up.html">Sign Up</a>
+            <a href="{% url 'register:login' %}">Log In</a>
+            <a href="{% url 'register:sign-up' %}">Sign Up</a>
         </nav>
     </div>
 </header>
@@ -30,29 +30,32 @@
             <h1>Join Us</h1><br>
             <p style="color:grey">Create a free account to borrow books, track your reading, and explore our digital collection.</p>
         </div>
-
         <div class="form-section">
-            <form action="login.html" method="POST">
+
+            {% if messages %}
+                {% for message in messages %}
+                    <div style="color: red; margin-bottom: 10px;">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+
+            <form method="POST" action="">
+                {% csrf_token %}
                 <div class="input-group">
                     <label for="fullname">Full Name</label>
                     <input type="text" id="fullname" name="fullname" placeholder="Enter Your Full Name" required>
                 </div>
-
                 <div class="input-group">
                     <label for="signup-email">Email</label>
                     <input type="email" id="signup-email" name="email" placeholder="Enter Your Email" required>
                 </div>
-
                 <div class="input-group">
                     <label for="signup-psw">Password</label>
                     <input type="password" id="signup-psw" name="psw" placeholder="Enter Your Password" required>
                 </div>
-
                 <div class="input-group">
                     <label for="confirm-psw">Confirm Password</label>
                     <input type="password" id="confirm-psw" name="confirm-psw" placeholder="Confirm Your Password" required>
                 </div>
-
                 <div class="role-selection">
                     <label>Account Role:</label>
                     <div class="radio-group">
@@ -62,13 +65,13 @@
                         <label for="role_admin">Admin</label>
                     </div>
                 </div>
-
                 <div class="action-buttons">
                     <button type="submit" class="main-login-btn">Register</button>
                     <button type="reset" class="clear-btn">Clear</button>
                 </div>
             </form>
-            <p class="signup-footer">Already have an account? <a href="login.html">Log in here.</a></p>
+
+            <p class="signup-footer">Already have an account? <a href="{% url 'register:login' %}">Log in here.</a></p>
         </div>
     </div>
 </main>
@@ -76,8 +79,6 @@
 <footer class="site-footer">
     <p>&copy; 2026 Online Library Website | <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
 </footer>
-<button type="button" class="clear-btn" onclick="clearForm()">Clear</button>
-<script src="../js/auth.js"></script>
 
 </body>
 </html>
