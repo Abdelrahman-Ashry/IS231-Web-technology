@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Library | Home</title>
+    <link rel="stylesheet" href="{% static 'style_main.css' %}">
+</head>
+<body>
+
+<header>
+    <a href="{% url 'library:home' %}" class="logo">
+        <img src="{% static 'img/logo.png' %}" alt="Logo">
+    </a>
+
+    <nav>
+        <a href="{% url 'library:home' %}">Home</a>
+        {% if user.is_authenticated %}
+            {% if user.is_admin %}
+                <a href="{% url 'library:admin_dashboard' %}">Admin Dashboard</a>
+            {% else %}
+                <a href="{% url 'library:user_dashboard' %}">My Dashboard</a>
+                <a href="{% url 'library:my_borrowed' %}">Borrowed Books</a>
+            {% endif %}
+            <span style="color: white; font-size: 14px; padding: 7px;">Welcome, {{ user.first_name }}</span>
+            <a href="{% url 'register:logout' %}" class="signup-link">Logout</a>
+        {% else %}
+            <a href="{% url 'register:login' %}">Log In</a>
+            <a href="{% url 'register:sign-up' %}" class="signup-link">Sign Up</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h1>Your Gateway to a World of Knowledge</h1>
+            <p>Access thousands of digital and physical books from our community-driven collection.</p>
+            <div class="hero-btns">
+                <a href="#catalog">Explore Catalog</a>
+                <a href="#" class="hero-btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+   <section class="search-section">
+    <h2>Search for Books</h2>
+    <form action="{% url 'library:home' %}" method="GET" class="search-flex">
+        <input type="text" name="q" placeholder="Search by title, author, or ISBN..." value="{{ request.GET.q }}">
+        
+        <select name="category">
+            <option value="">All Categories</option>
+            {% for cat in categories %}
+                <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>{{ cat }}</option>
+            {% endfor %}
+        </select>
+        
+        <button type="submit" class="search-btn">Search</button>
+    </form>
+</section>
+
+    <section id="catalog" class="catalog-container">
+        <div class="section-header">
+            <h2>Featured Books</h2>
+        </div>
+        
+        <div class="scroll-window">
+            <div class="book-grid">
+                {% for book in books %}
+                    <div class="book-card">
+                        <div class="book-img-container">
+                            {% if book.cover %}
+                                <img src="{{ book.cover.url }}" alt="{{ book.title }}">
+                            {% else %}
+                                <img src="{% static 'img/logo.png' %}" alt="Default Cover">
+                            {% endif %}
+                            
+                            {% if book.copies > 0 %}
+                                <span class="badge" style="background-color: #28a745;">Available</span>
+                            {% else %}
+                                <span class="badge" style="background-color: #dc3545;">Borrowed</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="book-info">
+                            <span class="genre-tag">{{ book.category }}</span>
+                            <h3 style="font-size: 1rem; margin-bottom: 5px;">{{ book.title }}</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">By {{ book.author }}</p>
+                            <p style="font-size: 0.85rem; margin-bottom: 15px;">Copies: {{ book.copies }}</p>
+                            
+                            <a href="{% url 'library:book_details' book.id %}" class="view-btn" style="text-decoration: none; display: block; text-align: center;">View Details</a>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No books found. <a href="{% url 'library:home' %}">Clear Filters</a></p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 Online Library System. Built for Web Technology.</p>
+</footer>
+
+</body>
+</html>

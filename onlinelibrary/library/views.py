@@ -1,8 +1,10 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 from .models import Book, CATEGORY_CHOICES, STATUS_CHOICES
+
 
 
 def admin_required(view_func):
@@ -273,3 +275,28 @@ def borrow_book(request, book_id):
 def my_borrowed(request):
     borrowed = BorrowRecord.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'library/my_borrowed.html', {'borrowed': borrowed})
+
+def home(request):
+    query = request.GET.get('q')
+    category_filter = request.GET.get('category')
+    
+    books = Book.objects.filter(is_deleted=False)
+
+    if query:
+        books = books.filter(
+            Q(title__icontains=query) | 
+            Q(author__icontains=query) | 
+            Q(isbn__icontains=query)
+        )
+    
+    if category_filter:
+        books = books.filter(category=category_filter)
+
+    # بدلاً من استخراج الفئات من الكتب، نرسل القائمة الكاملة المعرفة في الموديل
+    # نأخذ القيمة الأولى من كل tuple في CATEGORY_CHOICES
+    full_categories = [choice[0] for choice in CATEGORY_CHOICES]
+
+    return render(request, 'library/main.html', {
+        'books': books, 
+        'categories': full_categories  # إرسال كل الفئات
+    })
