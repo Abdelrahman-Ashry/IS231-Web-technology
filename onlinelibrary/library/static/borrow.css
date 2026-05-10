@@ -51,6 +51,13 @@ body.borrowBookPage{
     text-align: center;
     color: rgb(58, 7, 100);
 }
+.borrowBookPage .error-list li{
+    color: rgb(58, 7, 100);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 2em;
+}
 .borrowBookPage fieldset{
     background-color: rgb(255, 255, 255);
     border: 0.5px solid rgb(109, 40, 217);

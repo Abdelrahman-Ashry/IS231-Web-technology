@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'borrow.css' %}">
+    <script src="https://kit.fontawesome.com/1076022f5d.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <title>Borrow book</title>
+</head>
+
+<body class="borrowBookPage">
+
+    <header class="navbar">  
+        <div class="logo">
+            <a href="{% url 'library:user_dashboard' %}">
+                <img src="{% static 'img/logo.png' %}" alt="logo">
+            </a>
+        </div>
+        <nav class="nav-links">
+            <a href="{% url 'library:user_dashboard' %}">Library Catalog</a>
+            <a href="{% url 'library:my_borrowed' %}">My Borrowed Books</a>
+            <a id="logout" href="{% url 'register:logout' %}">Log out</a>
+        </nav>
+
+    </header>
+
+    
+    <h1>Borrow book</h1>
+
+    <fieldset class="book">
+        <legend>Book Details</legend>
+        <div class="bookDetails">
+            <img id="bookCover" src="{{ book.cover_url }}" alt="{{ book.title }}">
+            <div class="bookInfo">
+                <p id="bookTitle">{{ book.title }}</p>
+                <p id="bookAuthor">{{ book.author }}</p>
+                <p id="bookCategory">{{ book.category }}</p>
+                <p id="bookYear">{{ book.year }}</p>
+            </div>
+        </div>
+    </fieldset>
+    
+    {% if errors %}
+    <ul class="error-list">
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form id="borrowForm" action="{% url 'library:borrow_book' book.id %}" method="post"> 
+        {% csrf_token %}
+        <fieldset>
+            <legend>Borrowing Details</legend>
+
+    <!--Quantity-->    
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="{{ book.copies }}" value="1" required>
+
+    <!--Borrow and return date-->
+            <div class="dates">
+                <div>
+                    <label for="borrow_date">Borrow date:</label>
+                    <input type="date" id="borrow_date" name="borrow_date" required>
+                </div>
+
+                <div>
+                    <label for="return_date">Return date</label>
+                    <input type="date" id="return_date" name="return_date" required>
+                </div>
+            </div>
+    
+    <!--Address-->
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="8" placeholder="Enter your address here..." required></textarea>
+
+    <!--Payment method-->
+            <div class="payment-method">
+                <label for="payment">Payment method:</label>
+
+                <input type="radio" id="cash" name="payment" value="cash" required>
+                <label for="cash">Cash on delivery</label>
+                
+                <input type="radio" id="card" name="payment" value="card" required>
+                <label for="card">Membership card</label>
+            </div>
+
+    <!--Notes-->    
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="5" placeholder="Enter any notes here..."></textarea>
+
+            <div class="newspaper">
+                <input type="checkbox" id="newspaper" name="newspaper" value="newspaper">
+                <label for="newspaper">Subscribe to our newspaper</label>
+            </div>
+    <!--Buttons-->
+            <input id="borrowBtn" type="submit" value="Borrow book">
+    <!--Message-->
+            <p id="message"></p>
+        </fieldset>
+    </form>
+
+    <footer class="footer">
+        <p>&copy; 2026 Online Library Website</p>
+
+        <div class="footer-links">
+            <a href="https://www.facebook.com" target="_blank">    
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="mailto:support@onlinelibrary.edu">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Help</a>
+        </div>
+    </footer>
+  
+     <script src="{% static 'borrow.js' %}"></script>
+
+
+</body>
+
+</html>
