@@ -1,0 +1,173 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">
+        <a href="{% url 'library:home' %}" class="nav-logo">
+            <img src="{% static 'images/logo.png' %}" class="logo">
+        </a>
+    </div>
+    <div class="nav-links">
+        <a href="{% url 'library:admin_dashboard' %}">Manage Books</a>
+        <a href="{% url 'library:add_book' %}">Add New Book</a>
+        <a href="{% url 'register:logout' %}">Logout</a>
+    </div>
+</nav>
+
+<div class="page-container"><br>
+
+    {% if errors %}
+    <div class="error-messages">
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <form id="editForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="edit-box">
+            <h2>Edit existing book</h2>
+
+            <div class="edit-layout">
+
+                <!-- Cover Section -->
+                <div class="cover-section">
+                    <img 
+                        src="{{ book.cover_url }}" 
+                        alt="Book Cover" 
+                        id="coverPhoto" 
+                        class="cover-photo">
+
+                    <div class="cover-buttons">
+                        <label class="change-cover-button">
+                            Change
+                            <input type="file" name="cover" id="coverInput" accept="image/*">
+                        </label>
+                    
+                        <button 
+                            type="button" 
+                            class="delete-cover-button" 
+                            id="deleteCover">Delete</button>
+                        <input type="hidden" name="delete_cover" id="deleteCoverInput" value="">
+                    </div>
+                </div>
+
+                <!-- Book Info -->
+                <div class="book-info">
+
+                    <!--ISBN-->
+                    <label>ISBN:</label><br>
+                    <input type="text" id="isbn" name="isbn" value="{{ book.isbn }}" readonly>
+                    <br><br>
+
+                    <!-- Book Name -->
+                    <label>Book Name:</label><br>
+                    <input type="text" id="bookName" name="title" value="{{ book.title }}">
+                    <br><br>
+
+                    <!-- Author -->
+                    <label>Author:</label><br>
+                    <input type="text" id="author" name="author" value="{{ book.author }}">
+                    <br><br>
+
+                    <!-- Publisher -->
+                    <label>Publisher:</label><br>
+                    <input type="text" id="publisher" name="publisher" value="{{ book.publisher }}">
+                    <br><br>
+
+                    <!-- Category -->
+                    <label>Category:</label><br>
+                    <select id="category" name="category">
+                        {% for value, label in categories %}
+                            <option value="{{ value }}" {% if book.category == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+
+                    <!-- Availability-->
+                    <label>Availability:</label><br>
+                    <select id="availability" name="status">
+                        {% for value, label in statuses %}
+                            <option value="{{ value }}" {% if book.status == value %}selected{% endif %}>
+                                {{ label }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <br><br>
+
+                    <!-- Published Year -->
+                    <label>Published Year:</label><br>
+                    <input type="number" id="year" name="year" min="1000" max="2026" value="{{ book.year }}">
+                    <br><br>
+
+                    <!-- Copies -->
+                    <label>Number of Copies:</label><br>
+                    <input type="number" id="copies" name="copies" min="0" step="1" value="{{ book.copies }}">
+                    <br><br>
+
+                    <!-- Description -->
+                    <label>Description:</label><br>
+                    <textarea id="description" name="description" rows="8" cols="40">{{ book.description }}</textarea>
+                    <br><br>
+
+                    <!-- Buttons -->
+                    <div class="submit-buttons">
+                        <button type="submit" class="Update-button" id="updateBtn">Update</button>
+                        <a href="{% url 'library:admin_dashboard' %}" class="Clear-button">Cancel</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <p>&copy; 2026 Online Library. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+   
+    document.getElementById('coverInput').addEventListener('change', function () {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => document.getElementById('coverPhoto').src = e.target.result;
+            reader.readAsDataURL(file);
+        }
+    });
+
+
+    document.getElementById('deleteCover').addEventListener('click', function () {
+        document.getElementById('coverPhoto').src = '/static/img/default-cover.jpg';
+        document.getElementById('deleteCoverInput').value = '1';
+        document.getElementById('coverInput').value = '';
+    });
+</script>
+
+</body>
+</html>
