@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="{% static 'Book_Details.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo-group">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </div>
+    </div>
+    <nav>
+        <a href="{% url 'library:user_dashboard' %}">Library Catalog</a>
+        <a href="{% url 'library:my_borrowed' %}">My Borrowed Books</a>
+        <a href="{% url 'register:logout' %}" class="nav-logout">Logout</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+    <div class="U"><h1>Book Details</h1></div>
+
+    <div class="book-details-card">
+
+        <!-- LEFT: Info -->
+        <div class="book-info-side">
+            <div class="book-header">
+                <span class="book-id">#{{ book.isbn }}</span>
+                <h2 class="book-title">{{ book.title }}</h2>
+                <p class="book-author">{{ book.author }}</p>
+            </div>
+
+            <span class="badge {% if book.copies > 0 %}badge-available{% else %}badge-unavailable{% endif %}">
+                {% if book.copies > 0 %}Available{% else %}Not Available{% endif %}
+            </span>
+
+            <ul class="details-list">
+                <li>
+                    <span class="detail-label">Category</span>
+                    <span class="detail-value">{{ book.category }}</span>
+                </li>
+                <li>
+                    <span class="detail-label">Published Year</span>
+                    <span class="detail-value">{{ book.year }}</span>
+                </li>
+                <li>
+                    <span class="detail-label">Publisher</span>
+                    <span class="detail-value">{{ book.publisher }}</span>
+                </li>
+                <li>
+                    <span class="detail-label">Number of Copies</span>
+                    <span class="detail-value">{{ book.copies }} copies</span>
+                </li>
+            </ul>
+
+            <div class="description-box">
+                <h3>Description</h3>
+                <p>{{ book.description }}</p>
+            </div>
+
+            {% if book.copies > 0 %}
+            <a href="{% url 'library:borrow_book' book.id %}">
+                <button class="btn-borrow">Borrow this Book</button>
+            </a>
+            {% else %}
+            <button class="btn-borrow-disabled" disabled>Not Available</button>
+            {% endif %}
+        </div>
+
+        <!-- RIGHT: Image -->
+        <div class="book-image-side">
+            <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Online Library Website</p>
+    <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: #f6f4ff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Reset img globally */
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    height: 80px;
+    background-color: #3B0764;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Left side — logo + title */
+.header-brand,
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ===== LOGO — small white circle like login page ===== */
+.logo {
+    width: 80px;
+    height: 80px;
+
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+/* ===== TITLE — italic white, same as login page ===== */
+
+.o h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: white;
+    font-style: italic;
+}
+
+.U h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+    color: #2f054f;
+}
+
+
+/* Nav links (right side) */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-family: "Open Sans", sans-serif;
+}
+
+nav a:hover,
+nav a.nav-active {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+nav a.nav-logout {
+    color: white;
+}
+
+nav a.nav-logout:hover {
+    background-color: rgba(255, 0, 0, 0.759);
+}
+
+/* Auth links style (login page) */
+.auth-links {
+    display: flex;
+    gap: 20px;
+}
+
+.auth-links a {
+    color: #EDE9FE;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.auth-links a:hover {
+    color: rgb(53, 0, 246);
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page-wrapper {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+
+/* ===== SECTION ===== */
+section {
+    background-color: white;
+    border: 1px solid #e0ddd8;
+    border-radius: 12px;
+    padding: 30px 35px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10);
+}
+
+/* Section title + button row */
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1.5px solid #e0ddd8;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2f054f;
+}
+
+/* Add New Book button */
+.btn-add {
+    background-color: #3B0764;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(26, 155, 186, 0.30);
+}
+
+.btn-add:hover {
+    background-color: #5e3fa5;
+    color: white;
+}
+
+/* ===== RECENTLY DELETED SECTION ===== */
+.deleted-section {
+    margin-top: 40px;
+}
+
+/* Deleted Books List Container */
+.deleted-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Each deleted book item */
+.deleted-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 12px 15px;
+    border-radius: 8px;
+}
+
+/* Book thumbnail in deleted list */
+.deleted-item img {
+    width: 40px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Info text inside deleted item */
+.deleted-info {
+    flex: 1;
+}
+
+.deleted-info strong {
+    color: #2f054f;
+}
+
+.deleted-info small {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Restore button */
+.btn-restore {
+    background-color: #3B0764;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.btn-restore:hover {
+    background-color: #5e3fa5;
+}
+
+/* Permanent delete button */
+.btn-permanent-delete {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.btn-permanent-delete:hover {
+    background-color: #b91c1c;
+}
+
+/* ===== BOOKS GRID ===== */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+/* ===== BOOK CARD ===== */
+.book-card {
+    background-color: white;
+    border: 1px solid #e0ddd8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.22s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px #EDE9FE;
+    border-color:#EDE9FE;
+}
+
+/* Book cover image */
+.book-cover {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #e8e5e0;
+    overflow: hidden;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover .book-cover img {
+    transform: scale(1.04);
+}
+
+/* Status badge on cover */
+.badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.badge-available {
+    background-color: #f0fdf4;
+    color: #8B5CF6;
+    border: 1px solid rgba(22, 163, 74, 0.22);
+}
+
+.badge-unavailable {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border: 1px solid rgba(220, 38, 38, 0.22);
+}
+
+/* Book info section */
+.book-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+}
+
+.book-id {
+    font-size: 10px;
+    color: #999999;
+    font-weight: 500;
+}
+
+.book-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2f054f;
+    line-height: 1.3;
+}
+
+.book-author {
+    font-size: 15px;
+    color: #2f054f;
+    font-style: italic;
+}
+
+/* Category / year / copies tags */
+.book-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.meta-tag {
+    background-color:#EDE9FE;
+    color: #8B5CF6;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+}
+
+.meta-copies {
+    background-color: #eeece8;
+    color: #555555;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+}
+
+/* Edit / Delete buttons */
+.book-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+    padding: 12px 15px;
+    border-top: 1px solid #e0ddd8;
+}
+
+.btn-edit,
+.btn-delete {
+    flex: 1;
+    text-align: center;
+    padding: 7px 0;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.btn-edit {
+    background-color: #EDE9FE;
+    color: #8B5CF6;
+    border: 1px solid #EDE9FE;
+}
+
+.btn-edit:hover {
+    background-color: #8B5CF6   ;
+    color: white;
+    border-color: #EDE9FE;
+}
+
+.btn-delete {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.btn-delete:hover {
+    background-color: #dc2626;
+    color: white;
+    border-color: #dc2626;
+}
+
+/* ===== LOGIN PAGE STYLES ===== */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    min-height: 80vh;
+}
+
+.login-card {
+    display: flex;
+    background: white;
+    border: 1px solid #ccc;
+    width: 900px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-section {
+    flex: 1;
+    padding: 100px 60px;
+    border-right: 1px solid #eee;
+    font-size: larger;
+    line-height: 30px;
+}
+
+.form-section {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    line-height: 30px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    background-color: #fff;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+
+.label-row label {
+    font-weight: bold;
+    font-size: 15px;
+    color: #333;
+}
+
+.small-link {
+    font-size: 15px;
+    color: #0074b1;
+    text-decoration: underline;
+}
+
+.main-login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0074b1;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.main-login-btn:hover {
+    background-color: #005a8a;
+}
+
+.signup-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/* ===== FOOTER ===== */
+footer,
+.site-footer {
+    background-color: #3B0764;
+    color: rgba(255, 255, 255, 0.45);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+footer p,
+.site-footer p {
+    color: white;
+}
+
+footer a,
+.site-footer a {
+    color: #8B5CF6;
+}
+
+footer a:hover,
+.site-footer a:hover {
+    color: #8B5CF6;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header          { padding: 0 20px; }
+    .page-wrapper   { padding: 20px 15px; }
+    section         { padding: 20px 15px; }
+    .books-grid     { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 15px; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .login-card     { flex-direction: column; width: 95%; }
+    .info-section   { padding: 30px; border-right: none; border-bottom: 1px solid #eee; }
+}
+
+@media (max-width: 480px) {
+    .books-grid { grid-template-columns: repeat(2, 1fr); }
+    nav a       { padding: 5px 10px; font-size: 14px; }
+}

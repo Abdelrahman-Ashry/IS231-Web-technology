@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Manage Books</title>
+    <link rel="stylesheet" href="{% static 'Admin.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="{% static 'img/logo.png' %}" alt="logo">
+    </div>
+    <nav>
+        <a href="{% url 'library:admin_dashboard' %}" class="nav-active">Manage Books</a>
+        <a href="{% url 'library:add_book' %}">Add New Book</a>
+        <a href="{% url 'register:logout' %}" class="nav-logout">Logout</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+    <div class="U"><h1>Admin Dashboard</h1></div>
+
+    <section>
+        <div class="section-header">
+            <h2>Available Books</h2>
+            <a href="{% url 'library:add_book' %}" class="btn-add">+ Add New Book</a>
+        </div>
+
+        {% if books %}
+        <div class="books-grid">
+            {% for book in books %}
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                    <span class="badge {% if book.copies > 0 %}badge-available{% else %}badge-unavailable{% endif %}">
+                        {% if book.copies > 0 %}Available{% else %}Not Available{% endif %}
+                    </span>
+                </div>
+                <div class="book-info">
+                    <span class="book-id">#{{ book.isbn }}</span>
+                    <h3 class="book-title">{{ book.title }}</h3>
+                    <p class="book-author">{{ book.author }}</p>
+                    <div class="book-meta">
+                        <span class="meta-tag">{{ book.category }}</span>
+                        <span class="meta-tag">{{ book.year }}</span>
+                        <span class="meta-copies">{{ book.copies }} copies</span>
+                    </div>
+                </div>
+                <div class="book-actions">
+                    <a href="{% url 'library:edit_book' book.id %}" class="btn-edit">✏️ Edit</a>
+                    <form method="post" action="{% url 'library:delete_book' book.id %}"
+                          style="flex:1;" onsubmit="return confirm('Move this book to trash?')">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-delete" style="width:100%;">🗑️ Delete</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="color:#999; padding:20px;">No books available.</p>
+        {% endif %}
+    </section>
+
+    <!-- DELETED BOOKS -->
+    <section class="deleted-section">
+        <div class="section-header">
+            <h2>🗑️ Recently Deleted Books</h2>
+        </div>
+
+        {% if deleted_books %}
+        <div class="deleted-list">
+            {% for book in deleted_books %}
+            <div class="deleted-item">
+                <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                <div class="deleted-info">
+                    <strong>{{ book.title }}</strong> by {{ book.author }} (ISBN: {{ book.isbn }})<br>
+                    <small>Deleted: {{ book.deleted_at|date:"N j, Y, g:i a" }}</small>
+                </div>
+                <form method="post" action="{% url 'library:restore_book' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-restore"
+                            onclick="return confirm('Restore this book?')">↻ Restore</button>
+                </form>
+                <form method="post" action="{% url 'library:permanent_delete_book' book.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-perm-delete"
+                            onclick="return confirm('Permanently delete? Cannot be undone.')">🗑️ Delete Permanently</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="color:#999; padding:20px;">No deleted books.</p>
+        {% endif %}
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Online Library Website</p>
+</footer>
+
+</body>
+</html>

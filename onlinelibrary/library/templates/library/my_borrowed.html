@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Borrowed Books</title>
+    <link rel="stylesheet" href="{% static 'My_Borrowed.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo-group">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </div>
+    </div>
+    <nav>
+        <a href="{% url 'library:user_dashboard' %}">Library Catalog</a>
+        <a href="{% url 'library:my_borrowed' %}" class="nav-active">My Borrowed Books</a>
+        <a href="{% url 'register:logout' %}" class="nav-logout">Logout</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+    <div class="U"><h1>My Borrowed Books</h1></div>
+
+    <section class="borrowed-section">
+        <div class="section-header">
+            <h2>Books I Have Borrowed</h2>
+        </div>
+
+        {% if borrowed %}
+        <div class="books-grid">
+            {% for record in borrowed %}
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="{{ record.book.cover_url }}" alt="{{ record.book.title }}">
+                    <span class="badge badge-borrowed">Borrowed</span>
+                </div>
+                <div class="book-info">
+                    <span class="book-id">#{{ record.book.isbn }}</span>
+                    <h3 class="book-title">{{ record.book.title }}</h3>
+                    <p class="book-author">{{ record.book.author }}</p>
+                    <div class="book-meta">
+                        <span class="meta-tag">{{ record.book.category }}</span>
+                        <span class="meta-tag">{{ record.quantity }} copies</span>
+                    </div>
+                </div>
+                <div class="book-dates">
+                    <div class="date-row">
+                        <span class="date-label">📅 Borrowed</span>
+                        <span class="date-value">{{ record.borrow_date }}</span>
+                    </div>
+                    <div class="date-row">
+                        <span class="date-label">🔁 Return by</span>
+                        <span class="date-value">{{ record.return_date }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="color:#999; padding:20px;">You haven't borrowed any books yet.</p>
+        {% endif %}
+
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Online Library Website</p>
+    <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+
+</body>
+</html>

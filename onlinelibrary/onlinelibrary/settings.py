@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'register.apps.RegisterConfig',
+    'library',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'), 
+    os.path.join(BASE_DIR, 'library', 'static'),
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 AUTH_USER_MODEL = 'register.User'
@@ -130,3 +132,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'salmanour334@gmail.com'      
 EMAIL_HOST_PASSWORD = 'ntzn wasd pbwa nbxz'   
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

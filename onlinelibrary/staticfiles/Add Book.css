@@ -1,0 +1,99 @@
+
+body {
+    margin: 0;
+    font-family: Open Sans, sans-serif;
+    background-color: #FFF9F9; 
+}
+.container {
+    width: 85%;
+    max-width: 1000px;
+    margin: 50px auto;
+    background-color: #FFF9F9; 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px #3B0764 ;
+    
+}
+header {
+    background-color: #3B0764;
+    color: white;
+    padding: 10px;
+    text-align: right;
+}
+h1 {
+    margin: 0;
+     text-align: center;
+}
+h2{
+    margin-bottom: 10px;
+    text-align: center;
+    color:#3B0764
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    text-align: right;
+}
+nav a:hover {
+    color: #b084d1;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3B0764;
+    padding: 5px 5px;
+}
+.logo img {
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+form {
+    background-color: white;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #3B0764;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+input[type="file"] {
+    border: 1px solid #3B0764;
+    padding: 8px;
+    border-radius: 6px;
+    background: white;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    color:#3B0764
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+}
+button[type="submit"] {
+    background-color: #3B0764;
+    color: white;
+}
+button[type="reset"] {
+    background-color: #e73c3c;
+    color: white;
+}

@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Dashboard - Library</title>
+    <link rel="stylesheet" href="{% static 'User.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="logo-group">
+        <div class="logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
+        </div>
+    </div>
+    <nav>
+        <a href="{% url 'library:user_dashboard' %}" class="nav-active">Library Catalog</a>
+        <a href="{% url 'library:my_borrowed' %}">My Borrowed Books</a>
+        <a href="{% url 'register:logout' %}" class="nav-logout">Logout</a>
+    </nav>
+</header>
+
+<div class="page-wrapper">
+    <div class="U"><h1>User Dashboard</h1></div>
+
+    <!-- SEARCH -->
+    <section class="search-section">
+        <h2>Search for Books</h2>
+        <form method="get" action="{% url 'library:user_dashboard' %}">
+            <div class="search-bar">
+                <input type="text" name="q" placeholder="Search by title or author..."
+                       value="{{ query }}">
+                <select name="category">
+                    <option value="">All Categories</option>
+                    {% for val, label in categories %}
+                    <option value="{{ val }}" {% if category == val %}selected{% endif %}>
+                        {{ label }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Search</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="catalog-section">
+        <div class="section-header">
+            <h2>Library Catalog</h2>
+        </div>
+
+        {% if books %}
+        <div class="books-grid">
+            {% for book in books %}
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="{{ book.cover_url }}" alt="{{ book.title }}">
+                    <span class="badge {% if book.copies > 0 %}badge-available{% else %}badge-unavailable{% endif %}">
+                        {% if book.copies > 0 %}Available{% else %}Not Available{% endif %}
+                    </span>
+                </div>
+                <div class="book-info">
+                    <span class="book-id">#{{ book.isbn }}</span>
+                    <h3 class="book-title">{{ book.title }}</h3>
+                    <p class="book-author">{{ book.author }}</p>
+                    <div class="book-meta">
+                        <span class="meta-tag">{{ book.category }}</span>
+                    </div>
+                </div>
+                <div class="book-actions">
+                    <a href="{% url 'library:book_details' book.id %}" class="btn-borrow">
+                        View Details
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p style="color:#999; padding:20px;">No books found.</p>
+        {% endif %}
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2026 Online Library Website</p>
+    <p>Contact us: <a href="mailto:support@onlinelibrary.edu">support@onlinelibrary.edu</a></p>
+</footer>
+
+</body>
+</html>
