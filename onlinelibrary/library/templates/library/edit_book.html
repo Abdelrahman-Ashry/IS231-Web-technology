@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'edit.css' %}">
 </head>
 
 <body>
@@ -129,11 +129,9 @@
 
                     <!-- Buttons -->
                     <div class="submit-buttons">
-                        <button type="submit" class="Update-button" id="updateBtn">Update</button>
-                        <a href="{% url 'library:admin_dashboard' %}" class="Clear-button">Cancel</a>
+                       <button type="submit" class="Update-button" id="updateBtn">Update</button>
+                       <button type="button" class="Clear-button" id="cancelBtn">Cancel</button>
                     </div>
-
-                </div>
             </div>
         </div>
     </form>
@@ -151,7 +149,7 @@
 </footer>
 
 <script>
-   
+    // Preview new cover image before uploading
     document.getElementById('coverInput').addEventListener('change', function () {
         const file = this.files[0];
         if (file) {
@@ -161,13 +159,14 @@
         }
     });
 
-
     document.getElementById('deleteCover').addEventListener('click', function () {
         document.getElementById('coverPhoto').src = '/static/img/default-cover.jpg';
         document.getElementById('deleteCoverInput').value = '1';
         document.getElementById('coverInput').value = '';
     });
+    document.getElementById('cancelBtn').addEventListener('click', function() {
+        window.location.href = "{% url 'library:admin_dashboard' %}";
+    });
 </script>
-
 </body>
 </html>

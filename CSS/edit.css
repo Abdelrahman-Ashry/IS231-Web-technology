@@ -54,14 +54,15 @@ body{
 
 .edit-box{
    width:1150px;
-   height: 1200px;
+   height: auto;
    margin:100px auto;
     background: #f8fcfe;
     border: 1px solid #5f10bf;
     border-radius:12px;
     box-shadow:0px 6px 20px #00000014;
     position: relative;
-    color:rgb(58, 7, 100)
+    color:rgb(58, 7, 100);
+    padding-bottom: 40px; 
 }
 
 .edit-box h2{
@@ -155,8 +156,8 @@ body{
     padding: 3px 2px;
     border: 1px solid #671ac4;
     border-radius:6px;
-    margin-left: 240px;
-    margin-right:70px;
+    margin-left: 240px; 
+     margin-right:70px; 
     color:#36145f;
 }
 
@@ -170,8 +171,10 @@ label{
 }
 
 .submit-buttons{
-    margin-left:230px;
+   margin-left:230px;   
     margin-right:70px;
+     vertical-align: middle; 
+     padding-bottom: 30px;
 }
 .Update-button{
     cursor: pointer;

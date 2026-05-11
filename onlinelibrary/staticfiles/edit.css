@@ -54,7 +54,7 @@ body{
 
 .edit-box{
    width:1150px;
-   height: 1200px;
+   height: auto;
    margin:100px auto;
     background: #f8fcfe;
     border: 1px solid #5f10bf;
@@ -172,6 +172,8 @@ label{
 .submit-buttons{
     margin-left:230px;
     margin-right:70px;
+     vertical-align: middle; 
+     padding-bottom: 30px;
 }
 .Update-button{
     cursor: pointer;
@@ -202,6 +204,7 @@ label{
     display: inline-block;
     font-size: 14px;
     margin-left: 10px;
+    
 }
 
 .Clear-button:hover{

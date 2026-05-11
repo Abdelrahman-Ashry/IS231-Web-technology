@@ -89,3 +89,6 @@ document.getElementById('clearBtn').addEventListener('click', (e) => {
         alert('Form cleared');
     }, 100);
 });
+document.getElementById('cancelBtn').addEventListener('click', function() {
+    window.location.href = "{% url 'library:admin_dashboard' %}";
+});
