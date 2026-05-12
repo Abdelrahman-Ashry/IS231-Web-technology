@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <title>Edit Book</title>
     <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="{% static 'edit.css' %}">
 </head>
 
@@ -15,7 +13,7 @@
 
 <nav class="navbar">
     <div class="nav-logo">
-        <a href="{% url 'library:home' %}" class="nav-logo">
+        <a href="{% url 'library:home' %}">
             <img src="{% static 'img/logo.png' %}" class="logo">
         </a>
     </div>
@@ -26,7 +24,7 @@
     </div>
 </nav>
 
-<div class="page-container"><br>
+<div class="page-container">
 
     {% if errors %}
     <div class="error-messages">
@@ -38,11 +36,11 @@
     </div>
     {% endif %}
 
-    <form id="editForm" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
         <div class="edit-box">
             <h2>Edit existing book</h2>
 
+    <form id="editForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
             <div class="edit-layout">
 
                 <!-- Cover Section -->
@@ -73,22 +71,20 @@
                     <!--ISBN-->
                     <label>ISBN:</label><br>
                     <input type="text" id="isbn" name="isbn" value="{{ book.isbn }}" readonly>
-                    <br><br>
 
                     <!-- Book Name -->
                     <label>Book Name:</label><br>
                     <input type="text" id="bookName" name="title" value="{{ book.title }}">
-                    <br><br>
 
                     <!-- Author -->
                     <label>Author:</label><br>
                     <input type="text" id="author" name="author" value="{{ book.author }}">
-                    <br><br>
+                  
 
                     <!-- Publisher -->
                     <label>Publisher:</label><br>
                     <input type="text" id="publisher" name="publisher" value="{{ book.publisher }}">
-                    <br><br>
+                
 
                     <!-- Category -->
                     <label>Category:</label><br>
@@ -99,7 +95,7 @@
                             </option>
                         {% endfor %}
                     </select>
-                    <br><br>
+                
 
                     <!-- Availability-->
                     <label>Availability:</label><br>
@@ -110,22 +106,22 @@
                             </option>
                         {% endfor %}
                     </select>
-                    <br><br>
+              
 
                     <!-- Published Year -->
                     <label>Published Year:</label><br>
                     <input type="number" id="year" name="year" min="1000" max="2026" value="{{ book.year }}">
-                    <br><br>
+              
 
                     <!-- Copies -->
                     <label>Number of Copies:</label><br>
                     <input type="number" id="copies" name="copies" min="0" step="1" value="{{ book.copies }}">
-                    <br><br>
+               
 
                     <!-- Description -->
                     <label>Description:</label><br>
                     <textarea id="description" name="description" rows="8" cols="40">{{ book.description }}</textarea>
-                    <br><br>
+                 
 
                     <!-- Buttons -->
                     <div class="submit-buttons">
@@ -136,16 +132,10 @@
         </div>
     </form>
 </div>
+</div>
 
 <footer class="footer">
-    <div class="footer-container">
         <p>&copy; 2026 Online Library. All rights reserved.</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Contact</a>
-        </div>
-    </div>
 </footer>
 
 {% load static %}
