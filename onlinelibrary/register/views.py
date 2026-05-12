@@ -6,12 +6,15 @@ from django.conf import settings
 import uuid
 from .models import User
 
+
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('library:home') 
+        if request.user.is_admin:
+            return redirect('library:admin_dashboard')
+        return redirect('library:user_dashboard')
 
     if request.method == 'POST':
-        email = request.POST.get('username')
+        email    = request.POST.get('username')
         password = request.POST.get('password')
 
         try:
@@ -24,28 +27,32 @@ def login_view(request):
             if not user.is_active:
                 messages.error(request, 'Please verify your email before logging in.')
                 return render(request, 'register/login.html')
-            
             login(request, user)
-            return redirect('library:home') # FIXED: Goes to home, not login
+            if user.is_admin:
+                return redirect('library:admin_dashboard')
+            return redirect('library:user_dashboard')
         else:
             messages.error(request, 'Invalid email or password.')
 
     return render(request, 'register/login.html')
 
+
 def register_view(request):
     if request.user.is_authenticated:
-        return redirect('library:home')
+        if request.user.is_admin:
+            return redirect('library:admin_dashboard')
+        return redirect('library:user_dashboard')
 
     if request.method == 'POST':
-        fullname = request.POST.get('fullname', '').strip()
-        email = request.POST.get('email', '').strip()
-        password = request.POST.get('psw', '')
-        confirm = request.POST.get('confirm-psw', '')
-        role = request.POST.get('is_admin', 'user')
+        fullname  = request.POST.get('fullname', '').strip()
+        email     = request.POST.get('email', '').strip()
+        password  = request.POST.get('psw', '')
+        confirm   = request.POST.get('confirm-psw', '')
+        role      = request.POST.get('is_admin', 'user')
 
         if password != confirm:
             messages.error(request, 'Passwords do not match.')
-            return render(request, 'register/sign up.html') 
+            return render(request, 'register/sign up.html')
 
         if User.objects.filter(email=email).exists():
             messages.error(request, 'An account with this email already exists.')
@@ -53,7 +60,7 @@ def register_view(request):
 
         name_parts = fullname.split(' ', 1)
         first_name = name_parts[0]
-        last_name = name_parts[1] if len(name_parts) > 1 else ''
+        last_name  = name_parts[1] if len(name_parts) > 1 else ''
 
         user = User.objects.create_user(
             username=email,
@@ -70,21 +77,18 @@ def register_view(request):
         request.session['verification_user_id'] = user.id
 
         verification_link = f"http://127.0.0.1:8000/register/verify/{token}/"
-        
-        try:
-            send_mail(
-                subject='Verify your Online Library account',
-                message=f'Hi {first_name},\n\nClick the link below to verify your email:\n\n{verification_link}',
-                from_email=settings.EMAIL_HOST_USER,
-                recipient_list=[email],
-            )
-            messages.success(request, 'Account created! Please check your email to verify.')
-        except Exception:
-            messages.warning(request, 'Account created, but email failed to send.')
+        send_mail(
+            subject='Verify your Online Library account',
+            message=f'Hi {first_name},\n\nClick the link below to verify your email:\n\n{verification_link}\n\nThis link expires when you close your browser.',
+            from_email=settings.EMAIL_HOST_USER,
+            recipient_list=[email],
+        )
 
+        messages.success(request, 'Account created! Please check your email to verify your account.')
         return render(request, 'register/sign up.html')
 
     return render(request, 'register/sign up.html')
+
 
 def verify_email_view(request, token):
     session_token = request.session.get('verification_token')
@@ -96,14 +100,17 @@ def verify_email_view(request, token):
             user.is_active = True
             user.save()
             login(request, user)
-            messages.success(request, 'Email verified! Welcome!')
-            return redirect('library:home') # FIXED
+            messages.success(request, 'Email verified! Welcome to the Online Library!')
+            if user.is_admin:
+                return redirect('library:admin_dashboard')
+            return redirect('library:user_dashboard')
         except User.DoesNotExist:
             pass
 
     messages.error(request, 'Invalid or expired verification link.')
     return redirect('register:sign-up')
 
+
 def logout_view(request):
     logout(request)
-    return redirect('library:home') # FIXED: Go home after logout
+    return redirect('register:login')
