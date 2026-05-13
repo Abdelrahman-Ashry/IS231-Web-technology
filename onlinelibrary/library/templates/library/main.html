@@ -9,27 +9,30 @@
 </head>
 <body>
 
-<header>
-    <a href="{% url 'library:home' %}" class="logo">
-        <img src="{% static 'img/logo.png' %}" alt="Logo">
-    </a>
-
-    <nav>
-        <a href="{% url 'library:home' %}">Home</a>
-        {% if user.is_authenticated %}
-            {% if user.is_admin %}
-                <a href="{% url 'library:admin_dashboard' %}">Admin Dashboard</a>
+<header class="navbar">
+    <div class="blackbar">
+        <div class="logo-group">
+            <div class="logo">
+                <img src="{% static 'img/logo.png' %}" alt="logo">
+            </div>
+        </div>
+        <nav class="auth-links">
+            <a href="{% url 'library:home' %}">Home</a>
+            {% if user.is_authenticated %}
+                {% if user.is_admin %}
+                    <a href="{% url 'library:admin_dashboard' %}">Admin Dashboard</a>
+                {% else %}
+                    <a href="{% url 'library:user_dashboard' %}">My Dashboard</a>
+                    <a href="{% url 'library:my_borrowed' %}">Borrowed Books</a>
+                {% endif %}
+                <span style="color: white; font-size: 14px;">Welcome, {{ user.first_name }}</span>
+                <a href="{% url 'register:logout' %}">Logout</a>
             {% else %}
-                <a href="{% url 'library:user_dashboard' %}">My Dashboard</a>
-                <a href="{% url 'library:my_borrowed' %}">Borrowed Books</a>
+                <a href="{% url 'register:login' %}">Log In</a>
+                <a href="{% url 'register:sign-up' %}">Sign Up</a>
             {% endif %}
-            <span style="color: white; font-size: 14px; padding: 7px;">Welcome, {{ user.first_name }}</span>
-            <a href="{% url 'register:logout' %}" class="signup-link">Logout</a>
-        {% else %}
-            <a href="{% url 'register:login' %}">Log In</a>
-            <a href="{% url 'register:sign-up' %}" class="signup-link">Sign Up</a>
-        {% endif %}
-    </nav>
+        </nav>
+    </div>
 </header>
 
 <main>
@@ -44,21 +47,21 @@
         </div>
     </section>
 
-   <section class="search-section">
-    <h2>Search for Books</h2>
-    <form action="{% url 'library:home' %}" method="GET" class="search-flex">
-        <input type="text" name="q" placeholder="Search by title, author, or ISBN..." value="{{ request.GET.q }}">
-        
-        <select name="category">
-            <option value="">All Categories</option>
-            {% for cat in categories %}
-                <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>{{ cat }}</option>
-            {% endfor %}
-        </select>
-        
-        <button type="submit" class="search-btn">Search</button>
-    </form>
-</section>
+    <section class="search-section">
+        <h2>Search for Books</h2>
+        <form action="{% url 'library:home' %}" method="GET" class="search-flex">
+            <input type="text" name="q" placeholder="Search by title, author, or ISBN..." value="{{ request.GET.q }}">
+            
+            <select name="category">
+                <option value="">All Categories</option>
+                {% for cat in categories %}
+                    <option value="{{ cat }}" {% if request.GET.category == cat %}selected{% endif %}>{{ cat }}</option>
+                {% endfor %}
+            </select>
+            
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </section>
 
     <section id="catalog" class="catalog-container">
         <div class="section-header">
