@@ -86,7 +86,7 @@ body {
 .edit-box {
     width: 100%;
     max-width: 750px;
-    max-height: 1300px;
+    max-height: 1350px;
     background: white;
     border: 1px solid #5f10bf4c;
     border-radius: 12px;
@@ -130,14 +130,15 @@ body {
 
 .cover-buttons {
     display: flex;
-    gap: 10px;
+    gap: 38px;
+    width: 100%;
 }
 
 .change-cover-button {
     cursor: pointer;
     background-color: #521f91;
     color: white;
-    padding: 7px 16px;
+   
     border-radius: 8px;
     border: none;
     font-size: 13px;
@@ -156,6 +157,22 @@ body {
     background-color: rgba(79, 74, 85, 0.979);
     color: white;
     padding: 7px 16px;
+    border-radius: 8px;
+    border: none;
+    font-size: 13px;
+}
+
+
+.change-cover-button,
+.delete-cover-button {
+    width: 80px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
     border-radius: 8px;
     border: none;
     font-size: 13px;
@@ -181,7 +198,7 @@ body {
     border: 1px solid #671ac46d;
     border-radius: 6px;
     box-shadow: 6px 6px 20px#0f0c111b;
-    margin: 0 0 40px 0;
+    margin: 0 0 30px 0;
     color: #36145f;
     font-size: 14px;
     font-family: "Open Sans", sans-serif;
@@ -199,7 +216,8 @@ label {
 .submit-buttons {
     display: flex;
     gap: 10px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+  
 }
 
 .Update-button {
@@ -243,25 +261,36 @@ label {
     font-size: 13px;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+
+.error-messages {
+    width: 100%;
+    max-width: 750px;
+
+    background-color: #fff0f0;
+    border: 1px solid #e55050;
+    color: #b42318;
+
+    padding: 14px 18px;
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.footer-links {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.error-messages ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.footer-links a {
-    color: #8B5CF6;
-    text-decoration: none;
-    padding: 6px 12px;
+.error-messages li {
     font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
 }
 
-.footer-links a:hover {
-    text-decoration: underline;
+.error-messages li:last-child {
+    margin-bottom: 0;
 }

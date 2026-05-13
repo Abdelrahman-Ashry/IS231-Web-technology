@@ -14,22 +14,33 @@
 
     <nav class="navbar">
       <div class="nav-logo">
-        <a href="../html/home.html">
+        <a href="../html/main.html">
         <img src="../images/logo.png"  class="logo">
         </a>
       </div>
 
       <div class="nav-links">
+        <a href="../html/main.html">Home</a> 
         <a href="../html/Admin_Dashboard.html">Manage Books</a> 
         <a href="../html/Add Book.html">Add New Book</a> 
         <a href="../html/login.html">Logout</a>
       </div>
     </nav>
 
-    <div class="page-container"><br>
+    <div class="page-container">
       <div class="edit-box">
 
-       <h2>Edit existing book</h2>
+        <h2>Edit book</h2>
+
+        {% if errors %}
+        <div class="error-messages">
+            <strong>⚠ Please fix the following:</strong>
+
+            {% for error in errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
        
         <form  id="editForm">
            <div class="edit-layout">
@@ -43,7 +54,7 @@
             <div class="cover-buttons">
                <label class="change-cover-button">Change<input type="file" id="coverInput"> 
                </label>
-               <button class="delete-cover-button" id="deleteCover">Delete</button>
+               <label class="delete-cover-button" id="deleteCover">Delete</label>
               </div>
             </div>
 
@@ -52,17 +63,17 @@
               <!--ISBN-->
               <label>ISBN:</label><br>
               <input type="text" id="isbn" readonly>
-              <br><br>
+            
 
               <!--Book Name-->
               <label>Book Name:</label><br>
               <input type="text" id="bookName">
-              <br><br>
+        
 
               <!--Author-->
               <label>Author:</label><br>
               <input type="text" id="author">
-              <br><br>
+          
 
               <!--Category-->
               <label>Category:</label><br>
@@ -97,13 +108,13 @@
               <!--Copies-->
               <label>Number of Copies:</label><br>
               <input type="number" id="copies" min="0" step="1">
-              <br><br>
+        
 
               <!--Description-->
               <label>Description:</label>
               <br>
               <textarea id = "description" rows="8" cols="40"></textarea>
-              <br><br>
+         
 
               <!--Buttons-->
               <div class="submit-buttons">
@@ -122,9 +133,7 @@
      <p>&copy; 2026 Online Library. All rights reserved.</p>
   </footer>
   
-
-   <!-- <script src="../js/data.js"></script>
-   <script src="../js/edit.js"></script> -->
+   <script src="../js/edit.js"></script>
 
   </body>
 </html>
