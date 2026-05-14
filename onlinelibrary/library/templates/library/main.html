@@ -64,9 +64,13 @@
     </section>
 
     <section id="catalog" class="catalog-container">
-        <div class="section-header">
-            <h2>Featured Books</h2>
-        </div>
+       <div class="section-header">
+    <h2>Featured Books</h2>
+    <div class="scroll-controls">
+        <button class="arrow-btn" id="prevBtn">&#8592;</button>
+        <button class="arrow-btn" id="nextBtn">&#8594;</button>
+    </div>
+</div>
         
         <div class="scroll-window">
             <div class="book-grid">
@@ -85,7 +89,6 @@
                                 <span class="badge" style="background-color: #dc3545;">Borrowed</span>
                             {% endif %}
                         </div>
-
                         <div class="book-info">
                             <span class="genre-tag">{{ book.category }}</span>
                             <h3 style="font-size: 1rem; margin-bottom: 5px;">{{ book.title }}</h3>
@@ -106,6 +109,6 @@
 <footer>
     <p>&copy; 2026 Online Library System. Built for Web Technology.</p>
 </footer>
-
+<script src="{% static 'main.js' %}"></script>
 </body>
 </html>
