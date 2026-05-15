@@ -292,11 +292,9 @@ def home(request):
     if category_filter:
         books = books.filter(category=category_filter)
 
-    # بدلاً من استخراج الفئات من الكتب، نرسل القائمة الكاملة المعرفة في الموديل
-    # نأخذ القيمة الأولى من كل tuple في CATEGORY_CHOICES
     full_categories = [choice[0] for choice in CATEGORY_CHOICES]
 
     return render(request, 'library/main.html', {
         'books': books, 
-        'categories': full_categories  # إرسال كل الفئات
+        'categories': full_categories 
     })

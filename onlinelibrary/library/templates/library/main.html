@@ -13,11 +13,12 @@
     <div class="blackbar">
         <div class="logo-group">
             <div class="logo">
-                <img src="{% static 'img/logo.png' %}" alt="logo">
+                <a href="{% url 'library:home' %}">
+                    <img src="{% static 'img/logo.png' %}" alt="logo">
+                </a>
             </div>
         </div>
         <nav class="auth-links">
-            <a href="{% url 'library:home' %}">Home</a>
             {% if user.is_authenticated %}
                 {% if user.is_admin %}
                     <a href="{% url 'library:admin_dashboard' %}">Admin Dashboard</a>
@@ -64,13 +65,13 @@
     </section>
 
     <section id="catalog" class="catalog-container">
-       <div class="section-header">
-    <h2>Featured Books</h2>
-    <div class="scroll-controls">
-        <button class="arrow-btn" id="prevBtn">&#8592;</button>
-        <button class="arrow-btn" id="nextBtn">&#8594;</button>
-    </div>
-</div>
+        <div class="section-header">
+            <h2>Featured Books</h2>
+            <div class="scroll-controls">
+                <button class="arrow-btn" id="prevBtn">&#8592;</button>
+                <button class="arrow-btn" id="nextBtn">&#8594;</button>
+            </div>
+        </div>
         
         <div class="scroll-window">
             <div class="book-grid">
@@ -92,7 +93,7 @@
                         <div class="book-info">
                             <span class="genre-tag">{{ book.category }}</span>
                             <h3 style="font-size: 1rem; margin-bottom: 5px;">{{ book.title }}</h3>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">By {{ book.author }}</p>
+                            <p class="author" style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">By {{ book.author }}</p>
                             <p style="font-size: 0.85rem; margin-bottom: 15px;">Copies: {{ book.copies }}</p>
                             
                             <a href="{% url 'library:book_details' book.id %}" class="view-btn" style="text-decoration: none; display: block; text-align: center;">View Details</a>
